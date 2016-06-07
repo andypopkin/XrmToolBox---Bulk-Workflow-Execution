@@ -55,10 +55,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="XrmToolBox, Version=1.2015.9.22, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\XrmToolBox\XrmToolBox\bin\Debug\XrmToolBox.exe</HintPath>
-    </Reference>
     <Reference Include="XrmToolBox.Extensibility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\XrmToolBox\XrmToolBox\bin\Debug\XrmToolBox.Extensibility.dll</HintPath>

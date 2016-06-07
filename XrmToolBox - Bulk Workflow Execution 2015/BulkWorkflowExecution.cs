@@ -895,12 +895,12 @@ namespace XrmToolBox___Bulk_Workflow_Execution
         // TODO - GitHub
         public string RepositoryName
         {
-            get { return "GithubRepositoryName"; }
+            get { return "XrmToolBox---Bulk-Workflow-Execution"; }
         }
 
         public string UserName
         {
-            get { return "GithubUserName"; }
+            get { return "andypopkin"; }
         }
 
         #endregion Github implementation

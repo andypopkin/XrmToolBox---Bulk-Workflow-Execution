@@ -13,7 +13,7 @@ using XrmToolBox.Extensibility.Interfaces;
 
 namespace XrmToolBox___Bulk_Workflow_Execution
 {
-    public partial class BulkWorkflowExecution : PluginControlBase, IGitHubPlugin, ICodePlexPlugin, IPayPalPlugin, IHelpPlugin
+    public partial class BulkWorkflowExecution : PluginControlBase, IGitHubPlugin, ICodePlexPlugin, IPayPalPlugin, IHelpPlugin, IMessageBusHost
     {
         // BUGS
         /*
@@ -47,6 +47,8 @@ namespace XrmToolBox___Bulk_Workflow_Execution
         public int emrBatchSize = 200;
         public ExecuteMultipleRequest requestWithResults;
         public bool boolStopProcessing = false;
+
+        public event EventHandler<MessageBusEventArgs> OnOutgoingMessage;
 
         #endregion Custom Variables
 
@@ -171,14 +173,16 @@ namespace XrmToolBox___Bulk_Workflow_Execution
         {
             //viewsTypeRadioChanged();
             UIStatusUpdated("Query Ready");
+            btnFXB.Visible = radFetchXML.Checked;
         }
 
         private void radFetchXML_CheckedChanged(object sender, System.EventArgs e)
         {
             //viewsTypeRadioChanged();
             UIStatusUpdated("Query Ready");
+            btnFXB.Visible = radFetchXML.Checked;
         }
-        
+
         private void cmbWorkflows_SelectedIndexChanged(object sender, EventArgs e)
         {
             ExecuteMethod(getViews);
@@ -216,8 +220,24 @@ namespace XrmToolBox___Bulk_Workflow_Execution
             UIStatusUpdated("Query Ready");
         }
 
+        private void btnFXB_Click(object sender, EventArgs e)
+        {
+            var messageBusEventArgs = new MessageBusEventArgs("FetchXML Builder")
+            {
+                TargetArgument = rtxtFetchXML.Text
+            };
+            try
+            {
+                OnOutgoingMessage(this, messageBusEventArgs);
+            }
+            catch (PluginNotFoundException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         #endregion Form Control Methods
-                
+
         #region Bulk WF Tool Methods
 
         private void getWorkflows()
@@ -937,8 +957,21 @@ namespace XrmToolBox___Bulk_Workflow_Execution
 
         #endregion Help implementation
 
+        #region MessageBus implementation
+
+        public void OnIncomingMessage(MessageBusEventArgs message)
+        {
+            if (message.SourcePlugin == "FetchXML Builder" &&
+                message.TargetArgument is string)
+            {
+                rtxtFetchXML.Text = (string)message.TargetArgument;
+            }
+        }
+        
+        #endregion MessageBus implementation
+
         #endregion XrmToolBox Methods
     }
 
-    
+
 }

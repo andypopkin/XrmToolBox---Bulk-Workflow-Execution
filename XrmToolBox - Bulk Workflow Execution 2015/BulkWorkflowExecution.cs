@@ -3,17 +3,20 @@ using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
 using Microsoft.Xrm.Sdk.Query;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using XrmToolBox.Extensibility;
+using XrmToolBox.Extensibility.Args;
 using XrmToolBox.Extensibility.Interfaces;
 
 namespace XrmToolBox___Bulk_Workflow_Execution
 {
-    public partial class BulkWorkflowExecution : PluginControlBase, IGitHubPlugin, ICodePlexPlugin, IPayPalPlugin, IHelpPlugin
+    public partial class BulkWorkflowExecution : PluginControlBase, IGitHubPlugin, IPayPalPlugin
     {
         // BUGS
         /*
@@ -41,6 +44,9 @@ namespace XrmToolBox___Bulk_Workflow_Execution
         public Entity _selectedWorkflow;
         public Entity _selectedView;
         public Guid _defaultGuid = new Guid();
+        public List<TimeSpan> _listTS = new List<TimeSpan>();
+        TimeSpan avgTS = new TimeSpan();
+        TimeSpan estTS = new TimeSpan();
 
         public int emrCount = 0;
         public int errorCount = 0;
@@ -631,8 +637,9 @@ namespace XrmToolBox___Bulk_Workflow_Execution
             emrCount++;
             if (requestWithResults.Requests.Count >= emrBatchSize)
             {
-                w.ReportProgress(0, string.Format("Starting Workflows: {0} of {1}", emrCount.ToString("#,#", CultureInfo.InvariantCulture)
-                    , ExecutionRecordSet.Entities.Count.ToString("#,#", CultureInfo.InvariantCulture)));
+                DateTime start = DateTime.Now;
+                w.ReportProgress(0, string.Format("Starting Workflows: {0} of {1}{2}Est. Time Remaining: {3}", emrCount.ToString("#,#", CultureInfo.InvariantCulture)
+                    , ExecutionRecordSet.Entities.Count.ToString("#,#", CultureInfo.InvariantCulture), Environment.NewLine, estTS.ToString("hh\\:mm\\:ss")));
                 this.Invoke((MethodInvoker)delegate()
                 {
                     progressBar1.Maximum = ExecutionRecordSet.Entities.Count;
@@ -653,11 +660,22 @@ namespace XrmToolBox___Bulk_Workflow_Execution
                                 SystemFonts.DefaultFont).Height / 2.0F)));
                     }
                 });
+                
+                
+                
 
                 ExecuteMultipleResponse emrsp = (ExecuteMultipleResponse)Service.Execute(requestWithResults);
                 HandleErrors(emrsp);
-
                 requestWithResults.Requests.Clear();
+
+                DateTime end = DateTime.Now;
+                TimeSpan ts = end - start;
+                _listTS.Add(ts);
+
+                double doubleAverageTicks = _listTS.Average(timeSpan => timeSpan.Ticks);
+                long longAverageTicks = Convert.ToInt64(doubleAverageTicks);
+                avgTS = new TimeSpan(longAverageTicks);
+                estTS = new TimeSpan(((ExecutionRecordSet.Entities.Count - emrCount) / emrBatchSize) * avgTS.Ticks);
 
                 if (txtInterval.Text != "0" && !string.IsNullOrWhiteSpace(txtInterval.Text))
                 {
@@ -892,7 +910,7 @@ namespace XrmToolBox___Bulk_Workflow_Execution
         #endregion Who Am I Sample
 
         #region Github implementation
-        // TODO - GitHub
+        
         public string RepositoryName
         {
             get { return "XrmToolBox---Bulk-Workflow-Execution"; }
@@ -906,7 +924,7 @@ namespace XrmToolBox___Bulk_Workflow_Execution
         #endregion Github implementation
 
         #region CodePlex implementation
-        // TODO - CodePlex
+        
         public string CodePlexUrlName
         {
             get { return "CodePlex"; }

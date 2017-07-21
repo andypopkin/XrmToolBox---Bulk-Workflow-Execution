@@ -16,7 +16,7 @@ using XrmToolBox.Extensibility.Interfaces;
 
 namespace XrmToolBox___Bulk_Workflow_Execution
 {
-    public partial class BulkWorkflowExecution : PluginControlBase, IGitHubPlugin, IPayPalPlugin
+    public partial class BulkWorkflowExecution : PluginControlBase, IGitHubPlugin, IPayPalPlugin, IMessageBusHost
     {
         // BUGS
         /*
@@ -53,6 +53,8 @@ namespace XrmToolBox___Bulk_Workflow_Execution
         public int emrBatchSize = 200;
         public ExecuteMultipleRequest requestWithResults;
         public bool boolStopProcessing = false;
+
+        public event EventHandler<MessageBusEventArgs> OnOutgoingMessage;
 
         #endregion Custom Variables
 
@@ -154,7 +156,7 @@ namespace XrmToolBox___Bulk_Workflow_Execution
                 rtxtFetchXML.AppendText("Twitter: @andypopkin");
                 rtxtFetchXML.AppendText(Environment.NewLine);
                 rtxtFetchXML.AppendText(Environment.NewLine);
-                rtxtFetchXML.AppendText("** Please contact me if you have any issues or ideas for this tool or other XrmToolBox based tools. Thank you for using this tool! If you really enjoy, click the Donate > Bulk Workflow Tool button :) **");
+                rtxtFetchXML.AppendText("** Please contact me if you have any issues or ideas for this tool or other XrmToolBox based tools. Thank you for using this tool! If you really enjoy, click About > Donate > Bulk Workflow Execution button :) **");
             });
 
             UIStatusUpdated("Help");
@@ -177,12 +179,16 @@ namespace XrmToolBox___Bulk_Workflow_Execution
         {
             //viewsTypeRadioChanged();
             UIStatusUpdated("Query Ready");
+            //btnUseFXMLB.Visible = radFetchXML.Checked;
+            tsbFXB.Visible = toolStripSeparator5.Visible = radFetchXML.Checked;
         }
 
         private void radFetchXML_CheckedChanged(object sender, System.EventArgs e)
         {
             //viewsTypeRadioChanged();
             UIStatusUpdated("Query Ready");
+            //btnUseFXMLB.Visible = radFetchXML.Checked;
+            tsbFXB.Visible = toolStripSeparator5.Visible = radFetchXML.Checked;
         }
         
         private void cmbWorkflows_SelectedIndexChanged(object sender, EventArgs e)
@@ -222,12 +228,122 @@ namespace XrmToolBox___Bulk_Workflow_Execution
             UIStatusUpdated("Query Ready");
         }
 
+        private void btnFXMLB_Click(object sender, EventArgs e)
+        {
+            var messageBusEventArgs = new MessageBusEventArgs("FetchXML Builder")
+            {
+                TargetArgument = rtxtFetchXML.Text
+            };
+            try
+            {
+                OnOutgoingMessage(this, messageBusEventArgs);
+            }
+            catch (PluginNotFoundException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void tsbFXB_Click(object sender, EventArgs e)
+        {
+            var messageBusEventArgs = new MessageBusEventArgs("FetchXML Builder")
+            {
+                TargetArgument = rtxtFetchXML.Text
+            };
+            try
+            {
+                OnOutgoingMessage(this, messageBusEventArgs);
+            }
+            catch (PluginNotFoundException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         #endregion Form Control Methods
-                
+
         #region Bulk WF Tool Methods
 
         private void getWorkflows()
         {
+            WorkAsync(new WorkAsyncInfo
+            {
+                Message = "Retrieving Workflows...",
+                Work = (w, e) =>
+                {
+                    #region Reset Variables
+
+                    ExecutionRecordSet.Entities.Clear();
+                    _workflows.Entities.Clear();
+                    _selectedWorkflow = null;
+                    _views.Entities.Clear();
+                    // TODO - Allow Selection of Multiple Views?
+                    _selectedView = null;
+
+                    this.Invoke((MethodInvoker)delegate ()
+                    {
+                        cmbWorkflows.Items.Clear();
+                        lstViews.Items.Clear();
+                        txtRecordCount.Clear();
+                        rtxtFetchXML.Clear();
+                        tsbtnCount.Enabled = false;
+                        radFetchXML.Checked = false;
+                        radViews.Checked = true;
+                        //progressBar1.Style = ProgressBarStyle.Marquee;
+                        progressBar1.Value = 0;
+                        txtBatchSize.Text = "200";
+                        emrBatchSize = 200;
+                        txtInterval.Text = "0";
+                    });
+
+                    #endregion Reset Variables
+
+                    #region Get Workflows Query
+
+                    QueryExpression query = new QueryExpression("workflow");
+                    query.ColumnSet.AddColumns("workflowid", "name", "primaryentity");
+                    query.Distinct = true;
+                    query.AddOrder("name", OrderType.Ascending);
+                    query.Criteria = new FilterExpression();
+                    //query.Criteria.AddCondition("category", ConditionOperator.Equal, 0);
+
+                    FilterExpression childFilter = query.Criteria.AddFilter(LogicalOperator.And);
+                    childFilter.AddCondition("category", ConditionOperator.Equal, 0);
+                    childFilter.AddCondition("activeworkflowid", ConditionOperator.NotNull);
+                    childFilter.AddCondition("ondemand", ConditionOperator.Equal, true);
+
+                    e.Result = Service.RetrieveMultiple(query);
+
+                    #endregion Get Workflows Query
+
+                    _workflows = (EntityCollection)e.Result;
+
+                    if (_workflows.Entities.Count > 0)
+                    {
+                        foreach (var item in _workflows.Entities)
+                        {
+                            cmbWorkflows.Items.Add(item["name"]);
+                        }
+                    }
+                },
+                ProgressChanged = e =>
+                {
+                    // If progress has to be notified to user, use the following method:
+                    SetWorkingMessage("Retrieving Workflows.....");
+                },
+                PostWorkCallBack = e =>
+                { 
+                    cmbWorkflows.Text = "Select a Workflow to run";
+                    lstViews.Text = "Select a Workflow to populate this list";
+                },
+                AsyncArgument = null,
+                IsCancelable = true,
+                MessageWidth = 340,
+                MessageHeight = 150
+            });
+
+            #region Old Code
+            /*
             WorkAsync("Retrieving Workflows...", (w, e) =>
             {
                 #region Reset Variables
@@ -304,11 +420,129 @@ namespace XrmToolBox___Bulk_Workflow_Execution
                 },
                 null,//"Retrieving your user id...",
                 340,
-                150);            
+                150);
+                */
+            #endregion Old Code     
         }
 
         private void getViews()
         {
+            WorkAsync(new WorkAsyncInfo
+            {
+                Message = "Retrieving Views for Selected Workflow Entity...",
+                Work = (w, e) =>
+                {
+                    #region Reset View Stuff
+                    int selectedWorkflowIndex = -1;
+                    ExecutionRecordSet.Entities.Clear();
+                    Guid WorkflowId = Guid.Empty;
+                    _views.Entities.Clear();
+                    _selectedView = null;
+                    this.Invoke((MethodInvoker)delegate ()
+                    {
+                        lstViews.Items.Clear();
+                        rtxtFetchXML.Clear();
+                        tsbtnCount.Enabled = false;
+                        radViews.Checked = true;
+                        radFetchXML.Checked = false;
+                        txtRecordCount.Clear();
+                        //progressBar1.Style = ProgressBarStyle.Marquee;
+                        progressBar1.Value = 0;
+                        selectedWorkflowIndex = cmbWorkflows.SelectedIndex;
+                    });
+                    #endregion Reset View Stuff
+
+                    if (cmbWorkflows.Text == "Select a Workflow to run")
+                    {
+                        e.Cancel = true;
+                        MessageBox.Show("Please select a Workflow before refreshing the Views.", "Bulk Workflow Execution");
+                        return;
+                    }
+
+                    _selectedWorkflow = _workflows[selectedWorkflowIndex];
+
+                    #region System Views Loop
+
+                    QueryExpression query = new QueryExpression("savedquery");
+                    query.ColumnSet.AllColumns = true;
+                    query.AddOrder("name", OrderType.Ascending);
+                    query.Criteria = new FilterExpression();
+                    //query.Criteria.AddCondition("returnedtypecode", ConditionOperator.Equal, workflowEntity);
+
+                    FilterExpression childFilter = query.Criteria.AddFilter(LogicalOperator.And);
+                    childFilter.AddCondition("querytype", ConditionOperator.Equal, 0);
+                    childFilter.AddCondition("returnedtypecode", ConditionOperator.Equal, _selectedWorkflow["primaryentity"]);
+                    childFilter.AddCondition("statecode", ConditionOperator.Equal, 0);
+                    childFilter.AddCondition("fetchxml", ConditionOperator.NotNull);
+
+                    EntityCollection _ManagedViews = Service.RetrieveMultiple(query);
+                    _views.Entities.AddRange(_ManagedViews.Entities);
+
+                    foreach (var item in _ManagedViews.Entities)
+                    {
+                        this.Invoke((MethodInvoker)delegate ()
+                        {
+                            lstViews.Items.Add(item["name"]);
+                        });
+                    }
+                    #endregion System Views Loop
+
+                    #region Personal View Divider
+
+                    this.Invoke((MethodInvoker)delegate ()
+                    {
+                        lstViews.Items.Add("------------------ Personal Views -----------------------");
+                    });
+                    Entity _dummyView = new Entity("userquery");
+                    _dummyView.Id = _defaultGuid;
+                    _dummyView["name"] = "Dummy View";
+
+                    _views.Entities.Add(_dummyView);
+
+                    #endregion Personal View Divider
+
+                    #region Personal Views Loop
+                    QueryExpression query2 = new QueryExpression("userquery");
+                    query2.ColumnSet.AllColumns = true;
+                    query.AddOrder("name", OrderType.Ascending);
+                    query2.Criteria = new FilterExpression();
+                    //query.Criteria.AddCondition("ismanaged", ConditionOperator.Equal, true);
+
+                    FilterExpression childFilter2 = query2.Criteria.AddFilter(LogicalOperator.And);
+                    childFilter2.AddCondition("querytype", ConditionOperator.Equal, 0);
+                    childFilter2.AddCondition("returnedtypecode", ConditionOperator.Equal, _selectedWorkflow["primaryentity"]);
+                    childFilter2.AddCondition("statecode", ConditionOperator.Equal, 0);
+                    childFilter2.AddCondition("fetchxml", ConditionOperator.NotNull);
+
+                    EntityCollection _UserViews = Service.RetrieveMultiple(query2);
+                    _views.Entities.AddRange(_UserViews.Entities);
+
+                    foreach (var item in _UserViews.Entities)
+                    {
+                        this.Invoke((MethodInvoker)delegate ()
+                        {
+                            lstViews.Items.Add(item["name"]);
+                        });
+                    }
+                    #endregion Personal Views Loop
+                },
+                ProgressChanged = e =>
+                {
+                    // If progress has to be notified to user, use the following method:
+                    //SetWorkingMessage("Message to display");
+                },
+                PostWorkCallBack = e =>
+                {
+                    //MessageBox.Show(string.Format("You are {0}", (Guid)e.Result));
+                },
+                AsyncArgument = null,
+                IsCancelable = true,
+                MessageWidth = 340,
+                MessageHeight = 150
+            });
+            /////
+            #region Old Code
+            /*
             WorkAsync("Retrieving Views for Selected Workflow Entity", (w, e) =>
             {
                 #region Reset View Stuff
@@ -418,6 +652,9 @@ namespace XrmToolBox___Bulk_Workflow_Execution
                 null,//"Retrieving your user id...",
                 340,
                 150);
+            */
+            #endregion
+
         }
 
         private void updateFetchXMLfromView()
@@ -447,6 +684,107 @@ namespace XrmToolBox___Bulk_Workflow_Execution
 
         private void getRecordCount()
         {
+            WorkAsync(new WorkAsyncInfo
+            {
+                Message = "Counting Records in View...",
+                Work = (w, e) =>
+                {
+                    UIStatusUpdated("Validating");
+                    progressBar1.Value = 0;
+                    ExecutionRecordSet.Entities.Clear();
+                    boolStopProcessing = false;
+
+                    string fetchXml = rtxtFetchXML.Text;
+
+                    var conversionRequest = new FetchXmlToQueryExpressionRequest
+                    {
+                        FetchXml = fetchXml
+                    };
+
+                    FetchXmlToQueryExpressionResponse conversionResponse;
+                    try
+                    {
+                        conversionResponse = (FetchXmlToQueryExpressionResponse)Service.Execute(conversionRequest);
+                    }
+                    catch (Exception ex)
+                    {
+                        e.Cancel = true;
+                        MessageBox.Show(ex.Message.ToString(), "Bulk Workflow Execution");
+                        throw;
+                    }
+
+                    QueryExpression query1 = conversionResponse.Query;
+                    query1.ColumnSet.Columns.Clear();
+                    query1.PageInfo = new PagingInfo();
+                    query1.PageInfo.PageNumber = 1;
+                    query1.PageInfo.PagingCookie = null;
+                    query1.PageInfo.Count = 5000;
+
+                    while (true)
+                    {
+                        if (boolStopProcessing)
+                        {
+                            e.Cancel = true;
+                            //MessageBox.Show("Processing Stopped", "Bulk Workflow Execution");
+                            //tsbCancel.Enabled = false;
+                            boolStopProcessing = false;
+                            //toolStripSplitButton1.Enabled = true;
+                            ExecutionRecordSet.Entities.Clear();
+                            //UIStatusUpdated("Query Ready");
+                            break;
+                        }
+                        EntityCollection results = Service.RetrieveMultiple(query1);
+
+                        ExecutionRecordSet.Entities.AddRange(results.Entities);
+
+
+                        if (results.MoreRecords)
+                        {
+                            query1.PageInfo.PageNumber++;
+                            query1.PageInfo.PagingCookie = results.PagingCookie;
+                        }
+                        else
+                        {
+                            this.Invoke((MethodInvoker)delegate ()
+                            {
+                                txtRecordCount.Text = "0";
+                            });
+                            break;
+                        }
+
+                        w.ReportProgress(0, string.Format("Counting Records in View...({0})", ExecutionRecordSet.Entities.Count.ToString("#,#", CultureInfo.InvariantCulture)));
+                    }
+
+                    this.Invoke((MethodInvoker)delegate ()
+                    {
+                        txtRecordCount.Text = ExecutionRecordSet.Entities.Count == 0 ? "0" : ExecutionRecordSet.Entities.Count.ToString("#,#", CultureInfo.InvariantCulture);
+                        if (ExecutionRecordSet.Entities.Count == 0)
+                        {
+                            UIStatusUpdated("Query Ready");
+                        }
+                        else
+                        {
+                            UIStatusUpdated("Ready");
+                        }
+                    });
+                },
+                ProgressChanged = e =>
+                {
+                    // If progress has to be notified to user, use the following method:
+                    SetWorkingMessage(e.UserState.ToString());
+                },
+                PostWorkCallBack = e =>
+                {
+                    //MessageBox.Show(string.Format("You are {0}", (Guid)e.Result));
+                },
+                AsyncArgument = null,
+                IsCancelable = true,
+                MessageWidth = 340,
+                MessageHeight = 150
+            });
+            ///////
+            #region Old Code
+            /*
             WorkAsync("Counting Records in View..", (w, e) => // Work To Do Asynchronously
             {
                 UIStatusUpdated("Validating"); 
@@ -536,6 +874,9 @@ namespace XrmToolBox___Bulk_Workflow_Execution
             {
                 SetWorkingMessage(e.UserState.ToString());
             });
+            */
+            #endregion
+
         }
 
         private void startWorkflows()
@@ -546,13 +887,114 @@ namespace XrmToolBox___Bulk_Workflow_Execution
 
             this.Invoke((MethodInvoker)delegate()
             {
+                progressBar1.Maximum = ExecutionRecordSet.Entities.Count;                
                 progressBar1.Value = 0;
+                progressBar1.Step = emrBatchSize;
                 tsbtnCount.Enabled = false;
                 tsbExecuteWF.Enabled = false;
                 tsbCancel.Enabled = true;
                 toolStripSplitButton1.Enabled = false;
+                tsbFXB.Enabled = false;
             });
-            
+
+            WorkAsync(new WorkAsyncInfo
+            {
+                Message = string.Format("Starting {0} Workflows...", ExecutionRecordSet.Entities.Count),
+                Work = (w, e) =>
+                {
+                    if (ExecutionRecordSet.Entities.Count <= 0 || _selectedWorkflow == null)
+                    {
+                        e.Cancel = true;
+                        MessageBox.Show("Please click 'Validate Query' before Executing Workflows or ensure your Query is valid, returning records, and a Workflow is selected.", "Bulk Workflow Execution");
+                        return;
+                    }
+
+                    #region Bulk Data API Stuff
+                    // Create an ExecuteMultipleRequest object.
+                    requestWithResults = new ExecuteMultipleRequest()
+                    {
+                        // Assign settings that define execution behavior: continue on error, return responses. 
+                        Settings = new ExecuteMultipleSettings()
+                        {
+                            ContinueOnError = true,
+                            ReturnResponses = false
+                        },
+                        // Create an empty organization request collection.
+                        Requests = new OrganizationRequestCollection()
+                    };
+                    #endregion Bulk Data API Stuff
+
+                    emrBatchSize = txtBatchSize.Text != "" ? Convert.ToInt32(txtBatchSize.Text) : 200;
+
+                    // TODO - single execution or batch execution based on batch size?
+
+                    foreach (var item in ExecutionRecordSet.Entities)
+                    {
+                        if (!boolStopProcessing)
+                        {
+                            ExecuteWorkflowRequest _execWF = new ExecuteWorkflowRequest
+                            {
+                                WorkflowId = _selectedWorkflow.Id,
+                                EntityId = item.Id
+                            };
+                            w.ReportProgress(0,RunEMR(_execWF, ((BackgroundWorker)w)));  
+                        }
+                        else
+                        {
+                            e.Cancel = true;
+                            boolStopProcessing = false;
+                            ExecutionRecordSet.Entities.Clear();
+
+                            MessageBox.Show("Processing Stopped" + Environment.NewLine + Environment.NewLine
+                                + string.Format("Workflows Started: {0} of {1}", emrCount.ToString("#,#", CultureInfo.InvariantCulture), ExecutionRecordSet.Entities.Count.ToString("#,#", CultureInfo.InvariantCulture))
+                                + Environment.NewLine + "Errors: " + errorCount
+                                , "Bulk Workflow Execution");
+
+                            UIStatusUpdated("Complete");
+                            tsbtnCount.Enabled = true;
+                            return;
+                        }
+                    }
+                    FlushEMR((BackgroundWorker)w);
+                    // TODO - are these right? also need to make sure after stop button is clicked the buttons reset properly
+                    UIStatusUpdated("Complete");
+                },
+                ProgressChanged = e =>
+                {
+                    // If progress has to be notified to user, use the following method:
+                    SetWorkingMessage(e.UserState.ToString());
+                    
+                    //progressBar1.Maximum = ExecutionRecordSet.Entities.Count;
+                    //progressBar1.Minimum = 0;
+                    progressBar1.Value = emrCount;
+                    // TODO - text on the progress bar
+                    
+                    //int percent = (int)(((double)(progressBar1.Value - progressBar1.Minimum) / (double)(progressBar1.Maximum - progressBar1.Minimum)) * 100);
+                    //using (Graphics gr = progressBar1.CreateGraphics())
+                    //{
+                    //    gr.DrawString(string.Format(percent.ToString() + "% - {0}/{1}", emrCount, ExecutionRecordSet.Entities.Count),
+                    //        SystemFonts.DefaultFont,
+                    //        Brushes.Black,
+                    //        new PointF(progressBar1.Width / 2 - (gr.MeasureString(percent.ToString() + "%",
+                    //            SystemFonts.DefaultFont).Width / 2.0F),
+                    //        progressBar1.Height / 2 - (gr.MeasureString(percent.ToString() + "%",
+                    //            SystemFonts.DefaultFont).Height / 2.0F)));
+                    //}
+                    
+                },
+                PostWorkCallBack = e =>
+                {
+                    //MessageBox.Show(string.Format("You are {0}", (Guid)e.Result));
+                },
+                AsyncArgument = null,
+                IsCancelable = true,
+                MessageWidth = 340,
+                MessageHeight = 150
+            });
+
+            /////
+            #region Old Code
+            /*
             WorkAsync(string.Format("Starting {0} Workflows...",ExecutionRecordSet.Entities.Count),
                 (w, e) => // Work To Do Asynchronously
                 {
@@ -629,37 +1071,45 @@ namespace XrmToolBox___Bulk_Workflow_Execution
                     SetWorkingMessage(e.UserState.ToString());
                 }
             );
+            */
+            #endregion
+
         }
 
-        private void RunEMR(OrganizationRequest or, BackgroundWorker w)
+        private string RunEMR(OrganizationRequest or, BackgroundWorker w)
         {
+            string message = "";
             requestWithResults.Requests.Add(or);
             emrCount++;
             if (requestWithResults.Requests.Count >= emrBatchSize)
             {
                 DateTime start = DateTime.Now;
-                w.ReportProgress(0, string.Format("Starting Workflows: {0} of {1}{2}Est. Time Remaining: {3}", emrCount.ToString("#,#", CultureInfo.InvariantCulture)
-                    , ExecutionRecordSet.Entities.Count.ToString("#,#", CultureInfo.InvariantCulture), Environment.NewLine, estTS.ToString("hh\\:mm\\:ss")));
-                this.Invoke((MethodInvoker)delegate()
-                {
-                    progressBar1.Maximum = ExecutionRecordSet.Entities.Count;
-                    progressBar1.Minimum = 0;
-                    progressBar1.Value = emrCount;
-                    progressBar1.Refresh();
-                    // TODO - text on the progress bar
+                
+                //w.ReportProgress(0, string.Format("Starting Workflows: {0} of {1}{2}Est. Time Remaining: {3}", emrCount.ToString("#,#", CultureInfo.InvariantCulture)
+                    //, ExecutionRecordSet.Entities.Count.ToString("#,#", CultureInfo.InvariantCulture), Environment.NewLine, estTS.ToString("hh\\:mm\\:ss")));
+                message = string.Format("Starting Workflows: {0} of {1}{2}Est. Time Remaining: {3}", emrCount.ToString("#,#", CultureInfo.InvariantCulture)
+                    , ExecutionRecordSet.Entities.Count.ToString("#,#", CultureInfo.InvariantCulture), Environment.NewLine, estTS.ToString("hh\\:mm\\:ss"));
 
-                    int percent = (int)(((double)(progressBar1.Value - progressBar1.Minimum) / (double)(progressBar1.Maximum - progressBar1.Minimum)) * 100);
-                    using (Graphics gr = progressBar1.CreateGraphics())
-                    {
-                        gr.DrawString(string.Format(percent.ToString() + "% - {0}/{1}",emrCount,ExecutionRecordSet.Entities.Count),
-                            SystemFonts.DefaultFont,
-                            Brushes.Black,
-                            new PointF(progressBar1.Width / 2 - (gr.MeasureString(percent.ToString() + "%",
-                                SystemFonts.DefaultFont).Width / 2.0F),
-                            progressBar1.Height / 2 - (gr.MeasureString(percent.ToString() + "%",
-                                SystemFonts.DefaultFont).Height / 2.0F)));
-                    }
-                });
+                //this.Invoke((MethodInvoker)delegate()
+                //{
+                //    progressBar1.Maximum = ExecutionRecordSet.Entities.Count;
+                //    progressBar1.Minimum = 0;
+                //    progressBar1.Value = emrCount;
+                //    progressBar1.Refresh();
+                //    // TODO - text on the progress bar
+
+                //    int percent = (int)(((double)(progressBar1.Value - progressBar1.Minimum) / (double)(progressBar1.Maximum - progressBar1.Minimum)) * 100);
+                //    using (Graphics gr = progressBar1.CreateGraphics())
+                //    {
+                //        gr.DrawString(string.Format(percent.ToString() + "% - {0}/{1}",emrCount,ExecutionRecordSet.Entities.Count),
+                //            SystemFonts.DefaultFont,
+                //            Brushes.Black,
+                //            new PointF(progressBar1.Width / 2 - (gr.MeasureString(percent.ToString() + "%",
+                //                SystemFonts.DefaultFont).Width / 2.0F),
+                //            progressBar1.Height / 2 - (gr.MeasureString(percent.ToString() + "%",
+                //                SystemFonts.DefaultFont).Height / 2.0F)));
+                //    }
+                //});
                 
                 
                 
@@ -682,41 +1132,44 @@ namespace XrmToolBox___Bulk_Workflow_Execution
                     System.Threading.Thread.Sleep(Convert.ToInt16(txtInterval.Text) * 1000);
                 }
             }
+            return message;
         }
 
         private void FlushEMR(BackgroundWorker w)
         {
             if (emrCount > 0)
-            {                
+            {
+                w.ReportProgress(0, string.Format("Starting Workflows: {0} of {1}{2}Est. Time Remaining: {3}", emrCount.ToString("#,#", CultureInfo.InvariantCulture)
+                , ExecutionRecordSet.Entities.Count.ToString("#,#", CultureInfo.InvariantCulture), Environment.NewLine, estTS.ToString("hh\\:mm\\:ss")));
+                //SetWorkingMessage(string.Format("Starting Workflows: {0} of {1}{2}Est. Time Remaining: {3}", emrCount.ToString("#,#", CultureInfo.InvariantCulture)
+                //    , ExecutionRecordSet.Entities.Count.ToString("#,#", CultureInfo.InvariantCulture), Environment.NewLine, estTS.ToString("hh\\:mm\\:ss")));
+
                 ExecuteMultipleResponse emrsp = (ExecuteMultipleResponse)Service.Execute(requestWithResults);
                 HandleErrors(emrsp);
                 requestWithResults.Requests.Clear();                
 
-                this.Invoke((MethodInvoker)delegate()
-                {
-                    progressBar1.Maximum = ExecutionRecordSet.Entities.Count;
-                    progressBar1.Minimum = 0;
-                    progressBar1.Value = emrCount;
-                    progressBar1.Refresh();
+                //this.Invoke((MethodInvoker)delegate()
+                //{
+                //    progressBar1.Maximum = ExecutionRecordSet.Entities.Count;
+                //    progressBar1.Minimum = 0;
+                //    progressBar1.Value = emrCount;
+                //    progressBar1.Refresh();
                     
 
-                    // TODO - text on the progress bar #2
-                    int percent = (int)(((double)(progressBar1.Value - progressBar1.Minimum) / (double)(progressBar1.Maximum - progressBar1.Minimum)) * 100);
-                    using (Graphics gr = progressBar1.CreateGraphics())
-                    {
-                        gr.DrawString(string.Format(percent.ToString() + "% - {0}/{1} - Errors: {2}", emrCount, ExecutionRecordSet.Entities.Count, errorCount),
-                            SystemFonts.DefaultFont,
-                            Brushes.Black,
-                            new PointF(progressBar1.Width / 2 - (gr.MeasureString(percent.ToString() + "%",
-                                SystemFonts.DefaultFont).Width / 2.0F),
-                            progressBar1.Height / 2 - (gr.MeasureString(percent.ToString() + "%",
-                                SystemFonts.DefaultFont).Height / 2.0F)));
-                    }
-                });
+                //    // TODO - text on the progress bar #2
+                //    int percent = (int)(((double)(progressBar1.Value - progressBar1.Minimum) / (double)(progressBar1.Maximum - progressBar1.Minimum)) * 100);
+                //    using (Graphics gr = progressBar1.CreateGraphics())
+                //    {
+                //        gr.DrawString(string.Format(percent.ToString() + "% - {0}/{1} - Errors: {2}", emrCount, ExecutionRecordSet.Entities.Count, errorCount),
+                //            SystemFonts.DefaultFont,
+                //            Brushes.Black,
+                //            new PointF(progressBar1.Width / 2 - (gr.MeasureString(percent.ToString() + "%",
+                //                SystemFonts.DefaultFont).Width / 2.0F),
+                //            progressBar1.Height / 2 - (gr.MeasureString(percent.ToString() + "%",
+                //                SystemFonts.DefaultFont).Height / 2.0F)));
+                //    }
+                //});
 
-                w.ReportProgress(0, string.Format("Starting Workflows: {0} of {1}", emrCount.ToString("#,#", CultureInfo.InvariantCulture)
-                    , ExecutionRecordSet.Entities.Count.ToString("#,#", CultureInfo.InvariantCulture)));
-                
                 // TODO - finished dialog
                 tsbCancel.Enabled = false;
 
@@ -833,10 +1286,11 @@ namespace XrmToolBox___Bulk_Workflow_Execution
                 case "Complete":
                     // TODO - what needs to be disabled after completion?
                     toolStripSplitButton1.Enabled = true;
-                    tsbtnCount.Enabled = false;
+                    tsbtnCount.Enabled = true;
                     tsbExecuteWF.Enabled = false;
                     tsbCancel.Enabled = false;
                     tsbHelp.Enabled = true;
+                    tsbFXB.Enabled = tsbFXB.Visible;
 
                     cmbWorkflows.Enabled = true;
                     radFetchXML.Enabled = true;
@@ -881,25 +1335,30 @@ namespace XrmToolBox___Bulk_Workflow_Execution
 
         public void ProcessWhoAmI()
         {
-            WorkAsync(null, (w, e) =>
+            WorkAsync(new WorkAsyncInfo
             {
-                var request = new WhoAmIRequest();
-                var response = (WhoAmIResponse)Service.Execute(request);
+                Message = "Retrieving your user id...",
+                Work = (w, e) =>
+                {
+                    var request = new WhoAmIRequest();
+                    var response = (WhoAmIResponse)Service.Execute(request);
 
-                e.Result = response.UserId;
-            },
-                e =>
+                    e.Result = response.UserId;
+                },
+                ProgressChanged = e =>
+                {
+                    // If progress has to be notified to user, use the following method:
+                    SetWorkingMessage("Message to display");
+                },
+                PostWorkCallBack = e =>
                 {
                     MessageBox.Show(string.Format("You are {0}", (Guid)e.Result));
                 },
-                e =>
-                {
-                    // If progress has to be notified to user, use the following method:
-                    //SetWorkingMessage("Message to display");
-                },
-                "Retrieving your user id...",
-                340,
-                150);
+                AsyncArgument = null,
+                IsCancelable = true,
+                MessageWidth = 340,
+                MessageHeight = 150
+            });
         }
 
         private void BtnWhoAmIClick(object sender, EventArgs e)
@@ -955,8 +1414,24 @@ namespace XrmToolBox___Bulk_Workflow_Execution
 
         #endregion Help implementation
 
-        #endregion XrmToolBox Methods
-    }
+        #region MessageBus implementation
 
-    
+        public void OnIncomingMessage(MessageBusEventArgs message)
+        {
+            if (message.SourcePlugin == "FetchXML Builder" &&
+                message.TargetArgument is string)
+            {
+                rtxtFetchXML.Text = (string)message.TargetArgument;
+            }
+        }
+
+
+
+        #endregion MessageBus implementation
+
+        #endregion XrmToolBox Methods
+
+     }
+
+
 }

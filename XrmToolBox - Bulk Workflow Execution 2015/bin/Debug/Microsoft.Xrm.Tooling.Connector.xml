@@ -341,12 +341,6 @@
             Primary implementation of TokenCache
             </summary>
         </member>
-        <member name="F:Microsoft.Xrm.Tooling.Connector.CrmServiceClientTokenCache._UseLocalFileEncryption">
-            <summary>
-            Flag to control if the protected data API should be used.
-            this flag needs to be disabled if running under Azure WebApp contexts as they do not provide access to the encryption feature. 
-            </summary>
-        </member>
         <member name="M:Microsoft.Xrm.Tooling.Connector.CrmServiceClientTokenCache.#ctor(System.String)">
             <summary>
             Constructor with Parameter cacheFilePath
@@ -372,17 +366,6 @@
             Triggered right after ADAL accessed the cache.
             </summary>
             <param name="args"></param>
-        </member>
-        <member name="M:Microsoft.Xrm.Tooling.Connector.CrmServiceClientTokenCache.Dispose(System.Boolean)">
-            <summary>
-            Cleaning up the object. 
-            </summary>
-            <param name="disposing"></param>
-        </member>
-        <member name="M:Microsoft.Xrm.Tooling.Connector.CrmServiceClientTokenCache.Dispose">
-            <summary>
-            Clean up the object
-            </summary>
         </member>
         <member name="T:Microsoft.Xrm.Tooling.Connector.AuthenticationType">
             <summary>
@@ -437,16 +420,6 @@
         <member name="F:Microsoft.Xrm.Tooling.Connector.CrmWebSvc.firstPass">
             <summary>
              switch for actions that should run only once. 
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xrm.Tooling.Connector.CrmWebSvc._oAuthar">
-            <summary>
-            last Authentication Response from oAuth. 
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xrm.Tooling.Connector.CrmWebSvc.unqueInstance">
-            <summary>
-            if Set to true then the connection is for one use and should be cleand out of cache when completed. 
             </summary>
         </member>
         <member name="F:Microsoft.Xrm.Tooling.Connector.CrmWebSvc.UseExternalConnection">
@@ -525,18 +498,17 @@
             <param name="port">Port to connect to</param>
             <param name="onPrem">Token Cache Path supplied for storing OAuth tokens</param>
         </member>
-        <member name="M:Microsoft.Xrm.Tooling.Connector.CrmWebSvc.DoLogin(Microsoft.Xrm.Tooling.Connector.CrmWebSvc@)">
+        <member name="M:Microsoft.Xrm.Tooling.Connector.CrmWebSvc.DoLogin">
             <summary>
             Loges into CRM using the supplied parameters. 
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Microsoft.Xrm.Tooling.Connector.CrmWebSvc.DoLiveIdLogin(System.Boolean,Microsoft.Xrm.Tooling.Connector.CrmWebSvc@)">
+        <member name="M:Microsoft.Xrm.Tooling.Connector.CrmWebSvc.DoLiveIdLogin(System.Boolean)">
             <summary>
             Switchable version of DoLogin to support forcing a Login due to an expired token from Windows Live. 
             </summary>
             <param name="forceReLogin">True, clears the catch and forces a login</param>
-            <param name="ConnectionObject">Connection Object used to recover the connection object </param>
             <returns>true for success, false for not.</returns>
         </member>
         <member name="M:Microsoft.Xrm.Tooling.Connector.CrmWebSvc.GenerateCacheKeys(System.Boolean)">
@@ -545,13 +517,13 @@
             </summary>
             <param name="useUniqueCacheName"></param>
         </member>
-        <member name="M:Microsoft.Xrm.Tooling.Connector.CrmWebSvc.IntilizeService(Microsoft.Xrm.Tooling.Connector.CrmWebSvc@)">
+        <member name="M:Microsoft.Xrm.Tooling.Connector.CrmWebSvc.IntilizeService">
             <summary>
             Initializes the CRM Service
             </summary>
             <returns>Return true on Success, false on failure</returns>
         </member>
-        <member name="M:Microsoft.Xrm.Tooling.Connector.CrmWebSvc.GetCachedCRMService(Microsoft.Xrm.Tooling.Connector.CrmWebSvc@)">
+        <member name="M:Microsoft.Xrm.Tooling.Connector.CrmWebSvc.GetCachedCRMService">
             <summary>
             Try's to gets the Cached CRM Service from memory.
             on Failure, Initialize a New instance. 
@@ -621,26 +593,7 @@
             <param name="tokenCachePath">The token cache path.</param>
             <param name="isOnPrem">Determines whether onprem or </param>
             <param name="authority">The authority identifying the registered tenant</param>
-            <returns>The list of organizations discovered.</returns>
-        </member>
-        <member name="M:Microsoft.Xrm.Tooling.Connector.CrmWebSvc.ExecuteAuthenticateServiceProcess(System.Uri,System.ServiceModel.Description.ClientCredentials,Microsoft.IdentityModel.Clients.ActiveDirectory.UserIdentifier,System.String,System.Uri,Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior,System.String,System.Boolean,System.String,System.Uri@,Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext@,System.String@)">
-            <summary>
-            Executes Authentication against a service 
-            </summary>
-            <param name="serviceUrl"></param>
-            <param name="clientCredentials"></param>
-            <param name="user"></param>
-            <param name="clientId"></param>
-            <param name="redirectUri"></param>
-            <param name="promptBehavior"></param>
-            <param name="tokenCachePath"></param>
-            <param name="isOnPrem"></param>
-            <param name="authority"></param>
-            <param name="targetServiceUrl"></param>
-            <param name="authContext"></param>
-            <param name="resource"></param>
-            
-            <returns></returns>
+            <returns>The list of organisations discovered.</returns>
         </member>
         <member name="M:Microsoft.Xrm.Tooling.Connector.CrmWebSvc.DiscoverOrganizations(System.Uri,System.Uri,System.ServiceModel.Description.ClientCredentials,System.ServiceModel.Description.ClientCredentials)">
             <summary>
@@ -785,11 +738,6 @@
             <param name="tryNetworkCred">Internal Fall though switch</param>
             <param name="depthLevel">internal call back value</param>
             <returns>AuthenticationCredentials configured or null. </returns>
-        </member>
-        <member name="M:Microsoft.Xrm.Tooling.Connector.CrmWebSvc.ResetDisposedState">
-            <summary>
-            Reset disposed state to handel this object being pulled from cache. 
-            </summary>
         </member>
         <member name="P:Microsoft.Xrm.Tooling.Connector.CrmWebSvc.ServiceCACHEName">
             <summary>
@@ -2061,11 +2009,6 @@
             </summary>
             <param name="entity">Entity to update into CRM</param>
         </member>
-        <member name="M:Microsoft.Xrm.Tooling.Connector.CrmServiceClient.Dispose">
-            <summary>
-            Disposed the resources used by the CrmService Client. 
-            </summary>
-        </member>
         <member name="P:Microsoft.Xrm.Tooling.Connector.CrmServiceClient.IsReady">
             <summary>
             if true the service is ready to accept requests. 
@@ -2988,6 +2931,11 @@
             Last Exception
             </summary>
         </member>
+        <member name="F:Microsoft.Xrm.Tooling.Connector.TraceLoggerBase.Source">
+            <summary>
+            Trace source
+            </summary>
+        </member>
         <member name="M:Microsoft.Xrm.Tooling.Connector.TraceLoggerBase.#ctor">
             <summary>
             default TraceLoggerBase constructor
@@ -3035,16 +2983,6 @@
             To refresh listeners
             </summary>
             <param name="traceSourceSettingCollection"></param>
-        </member>
-        <member name="M:Microsoft.Xrm.Tooling.Connector.TraceLoggerBase.Dispose">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xrm.Tooling.Connector.TraceLoggerBase.Source">
-            <summary>
-            Trace source
-            </summary>
         </member>
         <member name="P:Microsoft.Xrm.Tooling.Connector.TraceLoggerBase.TraceSourceName">
             <summary>
@@ -3228,17 +3166,6 @@
             <param name="id">Id</param>
             <param name="message">message string</param>
         </member>
-        <member name="M:Microsoft.Xrm.Tooling.Connector.DynamicsFileLogTraceListener.GetSupportedAttributes">
-            <summary>
-            Adding MaxFileCount to the suported attribute list
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:Microsoft.Xrm.Tooling.Connector.DynamicsFileLogTraceListener.MaxFileCount">
-            <summary>
-            Number of files to keep while rolling.
-            </summary>
-        </member>
         <member name="T:Microsoft.Xrm.Tooling.Connector.crmHookServiceBehavior">
             <summary>
             THIS IS A TEMP CLASS USED AS A WORK AROUND FOR SOME NLB SITUATIONS,  IT IS DISABLED BY DEFAULT. 
@@ -3401,17 +3328,6 @@
             <param name="serverDisplayName">Name of the Server to find</param>
             <param name="isO365">if set, uses the office 365 server list.</param>
             <returns></returns>
-        </member>
-        <member name="M:Microsoft.Xrm.Tooling.Connector.Model.CrmOnlineDiscoveryServers.Dispose(System.Boolean)">
-            <summary>
-            Clean up 
-            </summary>
-            <param name="disposing"></param>
-        </member>
-        <member name="M:Microsoft.Xrm.Tooling.Connector.Model.CrmOnlineDiscoveryServers.Dispose">
-            <summary>
-            Clean up
-            </summary>
         </member>
         <member name="P:Microsoft.Xrm.Tooling.Connector.Model.CrmOnlineDiscoveryServers.Servers">
             <summary>
@@ -3578,20 +3494,14 @@
             List of trace listners
             </summary>
         </member>
-        <member name="T:Microsoft.Xrm.Tooling.Connector.CrmConnectionStringParsedData">
-            <summary>
-            Stores Parsed connection info from the use of a CRM connection string. 
-            This is only populated when the CRM Connection string object is used, this is read only. 
-            </summary>
-        </member>
         <member name="T:Microsoft.Xrm.Tooling.Connector.CrmConnection">
             <summary>
-            This proper
+            This class implimented  for connectionsting parsing
             </summary>
         </member>
         <member name="M:Microsoft.Xrm.Tooling.Connector.CrmConnection.SetOrgnameAndOnlineRegion(System.Uri)">
             <summary>
-            Get the organization name and online region from the org
+            Get the organizationname and online region from the org
             </summary>
             <param name="serviceUri"></param>
         </member>
@@ -3601,87 +3511,6 @@
             </summary>
             <param name="connectionString"></param>
             <returns></returns>
-        </member>
-        <member name="P:Microsoft.Xrm.Tooling.Connector.CrmConnection.ServiceUri">
-            <summary>
-            URL of the Service being connected too.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xrm.Tooling.Connector.CrmConnection.AuthenticationType">
-            <summary>
-            Authentication Type being used for this connection
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xrm.Tooling.Connector.CrmConnection.PromptBehavior">
-            <summary>
-            OAuth Prompt behavior.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xrm.Tooling.Connector.CrmConnection.HomeRealmUri">
-            <summary>
-            Claims based Delegated Authentication Url.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xrm.Tooling.Connector.CrmConnection.ClientCredentials">
-            <summary>
-            Client credentials parsed from connection string
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xrm.Tooling.Connector.CrmConnection.UserIdentifier">
-            <summary>
-            OAuth User Identifier
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xrm.Tooling.Connector.CrmConnection.DomainName">
-            <summary>
-            Domain of User
-            Active Directory Auth only.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xrm.Tooling.Connector.CrmConnection.UserId">
-            <summary>
-            User ID of the User connection to CRM
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xrm.Tooling.Connector.CrmConnection.Password">
-            <summary>
-            Password of user, parsed from connection string
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xrm.Tooling.Connector.CrmConnection.ClientId">
-            <summary>
-            Client ID used in the connection string
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xrm.Tooling.Connector.CrmConnection.Organization">
-            <summary>
-            Organization Name parsed from the connection string.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xrm.Tooling.Connector.CrmConnection.IsOnPremOauth">
-            <summary>
-            Set if the connection string is for an onPremise connection
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xrm.Tooling.Connector.CrmConnection.CrmOnlineRegion">
-            <summary>
-            CRM on-line region determined by the connection string
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xrm.Tooling.Connector.CrmConnection.RedirectUri">
-            <summary>
-            OAuth Redirect URI
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xrm.Tooling.Connector.CrmConnection.TokenCacheStorePath">
-            <summary>
-            OAuth Token Store Path
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xrm.Tooling.Connector.CrmConnection.UseUniqueConnectionInstance">
-            <summary>
-            When true, specifies a unique instance of the connection should be created. 
-            </summary>
         </member>
         <member name="T:Microsoft.Xrm.Tooling.Connector.Extension">
             <summary>
@@ -3739,15 +3568,6 @@
             </summary>
             <param name="executingAssembly">The assembly whose version is required.</param>
             <returns></returns>
-        </member>
-        <member name="M:Microsoft.Xrm.Tooling.Connector.Utilities.GetOrgnameAndOnlineRegionFromServiceUri(System.Uri,System.String@,System.String@,System.Boolean@)">
-            <summary>
-            Get the organization name and on-line region from the Uri
-            </summary>
-            <param name="serviceUri">Service Uri to parse</param>
-            <param name="isOnPrem">if OnPrem, will be set to true, else false.</param>
-            <param name="onlineRegion">Name of the CRM on line Region serving this request</param>
-            <param name="organizationName">Name of the Organization extracted from the Service URI</param>
         </member>
         <member name="T:Microsoft.Xrm.Tooling.Connector.XmlUtil">
             <summary>

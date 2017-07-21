@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<doc>
+<doc xmlns:caps="http://schemas.microsoft.com/build/caps/2013/11" xmlns:mref="urn:mref-extensions">
   <assembly>
     <name>Microsoft.Xrm.Sdk.Deployment</name>
   </assembly>
@@ -125,9 +125,7 @@
     </member>
     <member name="M:Microsoft.Xrm.Sdk.Deployment.CustomCodeSettings.#ctor">
       <summary>
-        <para>
-          Initializes a new instance of the
-          <see cref="T:Microsoft.Xrm.Sdk.Deployment.CustomCodeSettings" /> class.</para>
+        <para>Initializes a new instance of the<see cref="T:Microsoft.Xrm.Sdk.Deployment.CustomCodeSettings" /> class.</para>
       </summary>
       <remarks />
     </member>
@@ -145,9 +143,7 @@
     </member>
     <member name="M:Microsoft.Xrm.Sdk.Deployment.DeferredOperationRequest.#ctor">
       <summary>
-        <para>
-          Initializes a new instance of the
-          <see cref="T:Microsoft.Xrm.Sdk.Deployment.DeferredOperationRequest" /> class.</para>
+        <para>Initializes a new instance of the<see cref="T:Microsoft.Xrm.Sdk.Deployment.DeferredOperationRequest" /> class.</para>
       </summary>
       <remarks />
     </member>
@@ -195,9 +191,7 @@
     </member>
     <member name="M:Microsoft.Xrm.Sdk.Deployment.DeploymentConfigSettings.#ctor">
       <summary>
-        <para>
-          Initializes a new instance of the
-          <see cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentConfigSettings" /> class.</para>
+        <para>Initializes a new instance of the<see cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentConfigSettings" /> class.</para>
       </summary>
       <remarks />
     </member>
@@ -276,7 +270,7 @@
       </param>
       <remarks>
         <para>The ID of a deployment record is also referred to as an instance tag.</para>
-      </remarks>Deployment entities and deployment configuration settings<seealso cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Delete(Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType,Microsoft.Xrm.Sdk.Deployment.EntityInstanceId)" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeleteRequest" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType" /></member>
+      </remarks>Use Deployment Entities and Deployment Configuration Settings<seealso cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Delete(Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType,Microsoft.Xrm.Sdk.Deployment.EntityInstanceId)" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeleteRequest" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType" /></member>
     <member name="M:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceClient.Execute(Microsoft.Xrm.Sdk.Deployment.DeploymentServiceRequest)">
       <summary>
         <para>Executes a deployment service message in the form of a request, and returns a response.</para>
@@ -288,7 +282,7 @@
         <para>Type: <see cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceResponse" />
 The response from the request.</para>
       </returns>
-      <remarks />Deployment entities and deployment configuration settings</member>
+      <remarks />Use Deployment Entities and Deployment Configuration Settings</member>
     <member name="M:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceClient.Retrieve(Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType,Microsoft.Xrm.Sdk.Deployment.EntityInstanceId)">
       <summary>
         <para>Retrieves a deployment record.</para>
@@ -304,7 +298,7 @@ The response from the request.</para>
       </returns>
       <remarks>
         <para>The ID of a deployment record is also referred to as an instance tag.</para>
-      </remarks>Deployment entities and deployment configuration settings<seealso cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Retrieve(Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType,Microsoft.Xrm.Sdk.Deployment.EntityInstanceId)" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveRequest" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType" /></member>
+      </remarks>Use Deployment Entities and Deployment Configuration Settings<seealso cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Retrieve(Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType,Microsoft.Xrm.Sdk.Deployment.EntityInstanceId)" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveRequest" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType" /></member>
     <member name="M:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceClient.RetrieveAll(Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType)">
       <summary>
         <para>Retrieves all deployment records for the specified deployment entity type.</para>
@@ -315,7 +309,7 @@ The response from the request.</para>
       <returns>
         <para>Type: <see cref="T:Microsoft.Xrm.Sdk.DataCollection`1" />&lt;<see cref="T:Microsoft.Xrm.Sdk.Deployment.EntityInstanceId" />&gt;The collection of all deployment records.</para>
       </returns>
-      <remarks />Deployment entities and deployment configuration settings<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveAllRequest" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType" /></member>
+      <remarks />Use Deployment Entities and Deployment Configuration Settings<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveAllRequest" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType" /></member>
     <member name="M:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceClient.Update(Microsoft.Xrm.Sdk.Deployment.DeploymentObject)">
       <summary>
         <para>Updates a deployment record.</para>
@@ -324,8 +318,8 @@ The response from the request.</para>
         <para>Type: <see cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentObject" />. An instance of a deployment record with all values populated. See Remarks.</para>
       </param>
       <remarks>
-        <para>Before calling this method you should call <see cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Retrieve(Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType,Microsoft.Xrm.Sdk.Deployment.EntityInstanceId)" /> to get the deployment entity instance. Unlike the <see langword="IOrganizationService" />, this update method will use all attribute values in the <paramref name="deploymentObject" /> instance to update the record.</para>
-      </remarks>Deployment entities and deployment configuration settings<seealso cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Update(Microsoft.Xrm.Sdk.Deployment.DeploymentObject)" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.UpdateRequest" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType" /></member>
+        <para>Before calling this method you should call <see cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Retrieve(Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType,Microsoft.Xrm.Sdk.Deployment.EntityInstanceId)" /> to get the deployment entity instance. Unlike the <languageKeyword>IOrganizationService</languageKeyword>, this update method will use all attribute values in the <paramref name="deploymentObject" /> instance to update the record.</para>
+      </remarks>Use Deployment Entities and Deployment Configuration Settings<seealso cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Update(Microsoft.Xrm.Sdk.Deployment.DeploymentObject)" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.UpdateRequest" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType" /></member>
     <member name="M:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceFault.#ctor">
       <summary>
         <para>Initializes a new instance of the  the <see cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceFault" /> class.</para>
@@ -334,9 +328,7 @@ The response from the request.</para>
     </member>
     <member name="M:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceRequest.#ctor">
       <summary>
-        <para>
-          Initializes a new instance of the
-          <see cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceRequest" /> class.</para>
+        <para>Initializes a new instance of the<see cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceRequest" /> class.</para>
       </summary>
       <remarks />
     </member>
@@ -352,11 +344,6 @@ The response from the request.</para>
       </summary>
       <remarks />
     </member>
-    <member name="M:Microsoft.Xrm.Sdk.Deployment.EmailConversationViewSettings.#ctor">
-      <summary>
-        <para />
-      </summary>
-    </member>
     <member name="M:Microsoft.Xrm.Sdk.Deployment.EntityInstanceId.#ctor">
       <summary>
         <para>Initializes a new instance of the  <see cref="T:Microsoft.Xrm.Sdk.Deployment.EntityInstanceId" /> class.</para>
@@ -371,7 +358,7 @@ The response from the request.</para>
     </member>
     <member name="M:Microsoft.Xrm.Sdk.Deployment.EtmSettings.#ctor">
       <summary>
-        <para>Initializes a new instance of the  <see langword="EtmSettings" /> class.</para>
+        <para>Initializes a new instance of the  <languageKeyword>EtmSettings</languageKeyword> class.</para>
       </summary>
       <remarks />
     </member>
@@ -387,7 +374,7 @@ The response from the request.</para>
       </param>
       <remarks>
         <para>The ID of a deployment record is also referred to as an instance tag.</para>
-      </remarks>Deployment entities and deployment configuration settings<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeleteRequest" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType" /></member>
+      </remarks>Use Deployment Entities and Deployment Configuration Settings<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeleteRequest" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType" /></member>
     <member name="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Execute(Microsoft.Xrm.Sdk.Deployment.DeploymentServiceRequest)">
       <summary>
         <para>Executes a message in the form of a request, and returns a response.</para>
@@ -398,7 +385,7 @@ The response from the request.</para>
       <returns>
         <para>Type: <see cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceResponse" />The response from the request. You must cast the return value of this method to the specific instance of the response that corresponds to the <paramref name="Request" /> parameter</para>
       </returns>
-      <remarks />Deployment entities and deployment configuration settings</member>
+      <remarks />Use Deployment Entities and Deployment Configuration Settings</member>
     <member name="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Retrieve(Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType,Microsoft.Xrm.Sdk.Deployment.EntityInstanceId)">
       <summary>
         <para>Retrieves a deployment record.</para>
@@ -414,7 +401,7 @@ The response from the request.</para>
       </returns>
       <remarks>
         <para>The ID of a deployment record is also referred to as an instance tag.</para>
-      </remarks>Deployment entities and deployment configuration settings<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveRequest" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType" /></member>
+      </remarks>Use Deployment Entities and Deployment Configuration Settings<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveRequest" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType" /></member>
     <member name="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.RetrieveAll(Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType)">
       <summary>
         <para>Retrieves all deployment records for the specified deployment entity type.</para>
@@ -425,7 +412,7 @@ The response from the request.</para>
       <returns>
         <para>Type: <see cref="T:Microsoft.Xrm.Sdk.DataCollection`1" />&lt;<see cref="T:Microsoft.Xrm.Sdk.Deployment.EntityInstanceId" />&gt;The collection of all deployment records.</para>
       </returns>
-      <remarks />Deployment entities and deployment configuration settings<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveAllRequest" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType" /></member>
+      <remarks />Use Deployment Entities and Deployment Configuration Settings<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveAllRequest" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType" /></member>
     <member name="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Update(Microsoft.Xrm.Sdk.Deployment.DeploymentObject)">
       <summary>
         <para>Updates a deployment record.</para>
@@ -434,8 +421,8 @@ The response from the request.</para>
         <para>Type: <see cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentObject" />. An instance of a deployment record with all values populated. See Remarks.</para>
       </param>
       <remarks>
-        <para>Before calling this method you should call <see cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Retrieve(Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType,Microsoft.Xrm.Sdk.Deployment.EntityInstanceId)" /> to get the deployment entity instance. Unlike the <see langword="IOrganizationService" />, this update method will use all attribute values in the <paramref name="deploymentObject" /> instance to update the record.</para>
-      </remarks>Deployment entities and deployment configuration settings<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.UpdateRequest" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType" /></member>
+        <para>Before calling this method you should call <see cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Retrieve(Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType,Microsoft.Xrm.Sdk.Deployment.EntityInstanceId)" /> to get the deployment entity instance. Unlike the <languageKeyword>IOrganizationService</languageKeyword>, this update method will use all attribute values in the <paramref name="deploymentObject" /> instance to update the record.</para>
+      </remarks>Use Deployment Entities and Deployment Configuration Settings<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.UpdateRequest" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType" /></member>
     <member name="M:Microsoft.Xrm.Sdk.Deployment.IfdSettings.#ctor">
       <summary>
         <para>Initializes a new instance of the <see cref="T:Microsoft.Xrm.Sdk.Deployment.IfdSettings" /> class.</para>
@@ -444,7 +431,7 @@ The response from the request.</para>
     </member>
     <member name="M:Microsoft.Xrm.Sdk.Deployment.ImportSettings.#ctor">
       <summary>
-        <para>Initializes a new instance of the <see langword="ImportSettings" /> class.</para>
+        <para>Initializes a new instance of the <languageKeyword>ImportSettings</languageKeyword> class.</para>
       </summary>
       <remarks />
     </member>
@@ -507,7 +494,7 @@ The response from the request.</para>
         <para>Returns <see cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceClient" />.</para>
       </returns>
       <remarks>
-        <para>Use the following URL, replacing myservername with the name of your Microsoft Dynamics 365 server.</para>
+        <para>Use the following URL, replacing myservername with the name of your Microsoft Dynamics CRM server.</para>
         <code>http:// myservername/xrmdeployment/2011/deployment.svc</code>
       </remarks>
     </member>
@@ -525,7 +512,7 @@ The response from the request.</para>
         <para>Returns <see cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceClient" />.</para>
       </returns>
       <remarks>
-        <para>Use the following URL, replacing myservername with the name of your Microsoft Dynamics 365 server.</para>
+        <para>Use the following URL, replacing myservername with the name of your Microsoft Dynamics CRM server.</para>
         <code>http:// myservername/xrmdeployment/2011/deployment.svc</code>
       </remarks>
     </member>
@@ -651,9 +638,7 @@ The response from the request.</para>
     </member>
     <member name="M:Microsoft.Xrm.Sdk.Deployment.TrackLicenseRequest.#ctor">
       <summary>
-        <para>
-          Initializes a new instance of the
-          <see cref="T:Microsoft.Xrm.Sdk.Deployment.TrackLicenseRequest" /> class.</para>
+        <para>Initializes a new instance of the<see cref="T:Microsoft.Xrm.Sdk.Deployment.TrackLicenseRequest" /> class.</para>
       </summary>
       <remarks />
     </member>
@@ -707,7 +692,7 @@ The response from the request.</para>
     </member>
     <member name="M:Microsoft.Xrm.Sdk.Deployment.WorkflowSettings.#ctor">
       <summary>
-        <para>Initializes a new instance of the <see langword="WorkflowSettings" /> class.</para>
+        <para>Initializes a new instance of the <languageKeyword>WorkflowSettings</languageKeyword> class.</para>
       </summary>
       <remarks />
     </member>
@@ -722,7 +707,7 @@ The response from the request.</para>
         <para>Gets or sets the name of the SQL Server database backup file.</para>
       </summary>
       <returns>
-        <para>Type: <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see>The name of the SQL Server database backup file. This should be a full backup file of the source Microsoft Dynamics 365 database. This file must be accessible from SQL Server.</para>
+        <para>Type: <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see>The name of the SQL Server database backup file. This should be a full backup file of the source Microsoft Dynamics CRM database. This file must be accessible from SQL Server.</para>
       </returns>
       <remarks />
     </member>
@@ -746,19 +731,19 @@ The response from the request.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.AddCrmDatabaseRequest.DatabaseName">
       <summary>
-        <para>Gets or sets the name of the Dynamics 365 organization database to import.</para>
+        <para>Gets or sets the name of the CRM organization database to import.</para>
       </summary>
       <returns>
-        <para>Type: <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see>The name of the Dynamics 365 organization database to import.</para>
+        <para>Type: <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see>The name of the CRM organization database to import.</para>
       </returns>
       <remarks />
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.AddCrmDatabaseRequest.SqlServerName">
       <summary>
-        <para>Gets or sets the name of the SQL Server instance where you want to add the Dynamics 365 organization database.</para>
+        <para>Gets or sets the name of the SQL Server instance where you want to add the CRM organization database.</para>
       </summary>
       <returns>
-        <para>Type: <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see>The name of the SQL Server instance where you want to add the Dynamics 365 organization database.</para>
+        <para>Type: <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see>The name of the SQL Server instance where you want to add the CRM organization database.</para>
       </returns>
       <remarks />
     </member>
@@ -835,7 +820,7 @@ The retry rate for failed asynchronous operations.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.AsyncSettings.SdkRootDomain">
       <summary>
-        <para>Gets or sets the root domain used for calls into the Microsoft Dynamics 365 service from the asynchronous service.</para>
+        <para>Gets or sets the root domain used for calls into the Microsoft Dynamics CRM service from the asynchronous service.</para>
       </summary>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see>
@@ -877,9 +862,7 @@ The query interval.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.BaseData.ExtensionData">
       <summary>
-        <para>
-          For internal use only.
-        </para>
+        <para>For internal use only.</para>
       </summary>
       <returns>
         <para>Returns <see cref="T:System.Runtime.Serialization.ExtensionDataObject" />.</para>
@@ -930,10 +913,10 @@ The query interval.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.BeginImportOrganizationRequest.SqlServerName">
       <summary>
-        <para>Gets or sets the name of the Microsoft SQL Server where the Microsoft Dynamics 365 organization database is located. Required.</para>
+        <para>Gets or sets the name of the Microsoft SQL Server where the Microsoft Dynamics CRM organization database is located. Required.</para>
       </summary>
       <returns>
-        <para>Type: <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see>The name of the Microsoft SQL Server where the Microsoft Dynamics 365 organization database is located.</para>
+        <para>Type: <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see>The name of the Microsoft SQL Server where the Microsoft Dynamics CRM organization database is located.</para>
       </returns>
       <remarks>
         <para>This property is required.</para>
@@ -941,10 +924,10 @@ The query interval.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.BeginImportOrganizationRequest.SrsUrl">
       <summary>
-        <para>Gets or sets the URL of the Microsoft SQL Server on which the Microsoft Dynamics 365 Connector for SQL Server Reporting Services is installed. Required.</para>
+        <para>Gets or sets the URL of the Microsoft SQL Server on which the Microsoft Dynamics CRM Connector for SQL Server Reporting Services is installed. Required.</para>
       </summary>
       <returns>
-        <para>Type: <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see>The URL of the Microsoft SQL Server on which the Microsoft Dynamics 365 Connector for SQL Server Reporting Services is installed.</para>
+        <para>Type: <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see>The URL of the Microsoft SQL Server on which the Microsoft Dynamics CRM Connector for SQL Server Reporting Services is installed.</para>
       </returns>
       <remarks />
     </member>
@@ -1147,8 +1130,8 @@ The ID or the instance tag of the organization to upgrade.</para>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.boolean.aspx">Boolean</see>true if XAML workflows are allowed on the server; otherwise, false.</para>
       </returns>
       <remarks>
-        <para>You can also use Windows PowerShell to set this. For more information, see Enable or disable XAML workflows.</para>
-      </remarks>Custom XAML workflows</member>
+        <para>You can also use Windows PowerShell to set this. For more information, see Enable or Disable XAML Workflows.</para>
+      </remarks>Custom XAML Workflows</member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.CustomCodeSettings.AllowExternalCode">
       <summary>
         <para>Gets or sets whether plug-ins and custom workflow activities can be registered on the server. </para>
@@ -1157,8 +1140,8 @@ The ID or the instance tag of the organization to upgrade.</para>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.boolean.aspx">Boolean</see>true if the plug-ins and custom workflow activities can be registered on the server; otherwise, false.</para>
       </returns>
       <remarks>
-        <para>You can also use Windows PowerShell to set this. For more information, see Enable or disable custom code.</para>
-      </remarks>Custom workflow activities (workflow assemblies)</member>
+        <para>You can also use Windows PowerShell to set this. For more information, see Enable or Disable Custom Code.</para>
+      </remarks>Custom Workflow Activities (Workflow Assemblies)</member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.DashboardSettings.MaximumControlsLimit">
       <summary>
         <para>Gets or sets the maximum number of controls allowed on dashboards for the server.</para>
@@ -1169,7 +1152,7 @@ The maximum number of controls allowed on dashboards for the server.</para>
       </returns>
       <remarks>
         <para>The maximum value is 20.</para>
-        <para>You can also use Windows PowerShell to get or set this value. For more information, see Set the number of dashboard controls.</para>
+        <para>You can also use Windows PowerShell to get or set this value. For more information, see Set the Number of Dashboard Controls.</para>
       </remarks>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.DeferredOperationError.ErrorCode">
@@ -1192,9 +1175,7 @@ The maximum number of controls allowed on dashboards for the server.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.DeferredOperationError.ExtensionData">
       <summary>
-        <para>
-          Gets or sets the structure that contains extra data.
-        </para>
+        <para>Gets or sets the structure that contains extra data.</para>
       </summary>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.runtime.serialization.extensiondataobject.aspx">ExtensionDataObject</see>The extension data.</para>
@@ -1218,7 +1199,7 @@ The maximum number of controls allowed on dashboards for the server.</para>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.guid.aspx">Guid</see>The ID of the asynchronous request.</para>
       </returns>
       <remarks>
-        <para>You can use the <see langword="Get-CrmOperationStatus" />Windows PowerShell command to check the status of this asynchronous request.</para>
+        <para>You can use the <languageKeyword>Get-CrmOperationStatus</languageKeyword>Windows PowerShell command to check the status of this asynchronous request.</para>
       </remarks>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.DeferredOperationStatus.AssociatedEntityInstance">
@@ -1279,10 +1260,10 @@ The maximum number of controls allowed on dashboards for the server.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.DeleteOrganizationRequest.DetachDatabase">
       <summary>
-        <para>Gets or sets a value that indicates whether to detach the Dynamics 365 database from the SQL Server instance.</para>
+        <para>Gets or sets a value that indicates whether to detach the CRM database from the SQL Server instance.</para>
       </summary>
       <returns>
-        <para>Type: <see href="https://msdn.microsoft.com/library/system.boolean.aspx">Boolean</see>Indicates whether to detach the Dynamics 365 database from the SQL Server instance. <see langword="true" /> to detach the database, otherwise, <see langword="false" />.</para>
+        <para>Type: <see href="https://msdn.microsoft.com/library/system.boolean.aspx">Boolean</see>Indicates whether to detach the CRM database from the SQL Server instance. <languageKeyword>true</languageKeyword> to detach the database, otherwise, <languageKeyword>false</languageKeyword>.</para>
       </returns>
       <remarks>
         <para>This only removes the database from your deployment; it doesn’t delete the physical database on the server.</para>
@@ -1335,9 +1316,7 @@ The domain name and user ID of the deployment administrator.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.DeploymentObject.ExtensionData">
       <summary>
-        <para>
-          Gets or sets the structure that contains extra data.
-        </para>
+        <para>Gets or sets the structure that contains extra data.</para>
       </summary>
       <returns>
         <para>
@@ -1366,9 +1345,7 @@ The domain name and user ID of the deployment administrator.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceFault.ExtensionData">
       <summary>
-        <para>
-          Gets or sets the structure that contains extra data.
-        </para>
+        <para>Gets or sets the structure that contains extra data.</para>
       </summary>
       <returns>
         <para>Type:  <see href="https://msdn.microsoft.com/library/system.runtime.serialization.extensiondataobject.aspx">ExtensionDataObject</see>The extension data.</para>
@@ -1404,9 +1381,7 @@ The domain name and user ID of the deployment administrator.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceRequest.ExtensionData">
       <summary>
-        <para>
-          Gets or sets the structure that contains extra data.
-        </para>
+        <para>Gets or sets the structure that contains extra data.</para>
       </summary>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.runtime.serialization.extensiondataobject.aspx">ExtensionDataObject</see>The extension data.</para>
@@ -1415,9 +1390,7 @@ The domain name and user ID of the deployment administrator.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceResponse.ExtensionData">
       <summary>
-        <para>
-          Gets or sets the structure that contains extra data.
-        </para>
+        <para>Gets or sets the structure that contains extra data.</para>
       </summary>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.runtime.serialization.extensiondataobject.aspx">ExtensionDataObject</see>The extension data.</para>
@@ -1484,19 +1457,9 @@ The page size.</para>
       </returns>
       <remarks />
     </member>
-    <member name="P:Microsoft.Xrm.Sdk.Deployment.EmailConversationViewSettings.EmailConversationViewEnabled">
-      <summary>
-        <para />
-      </summary>
-      <returns>
-        <para />
-      </returns>
-    </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.EntityInstanceId.ExtensionData">
       <summary>
-        <para>
-          Gets or sets the structure that contains extra data.
-        </para>
+        <para>Gets or sets the structure that contains extra data.</para>
       </summary>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.runtime.serialization.extensiondataobject.aspx">ExtensionDataObject</see>The extension data.</para>
@@ -1722,7 +1685,7 @@ The web application server domain.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.MonitoringResultData.Role">
       <summary>
-        <para>Gets or sets the Dynamics 365 role for which the monitoring test was run.</para>
+        <para>Gets or sets the CRM role for which the monitoring test was run.</para>
       </summary>
       <returns>
         <para>Type <see cref="T:Microsoft.Xrm.Sdk.Deployment.ServerRoles" />role for which the monitoring test was run.</para>
@@ -1733,10 +1696,10 @@ The web application server domain.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.MonitoringResultData.Server">
       <summary>
-        <para>Gets or sets the Dynamics 365 server name where the test was run.</para>
+        <para>Gets or sets the CRM server name where the test was run.</para>
       </summary>
       <returns>
-        <para>Type <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see>The Dynamics 365 server name where the test was run.</para>
+        <para>Type <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see>The CRM server name where the test was run.</para>
       </returns>
       <remarks />
     </member>
@@ -1861,18 +1824,18 @@ The web application server domain.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.MultiEntityQuickFindSettings.MultiEntityQuickFindMaxRequestsPerOrgPerServer">
       <summary>
-        <para>Gets or sets the maximum number of concurrent <see langword="ExecuteQuickFind" /> requests per organization per server. Required.</para>
+        <para>Gets or sets the maximum number of concurrent <languageKeyword>ExecuteQuickFind</languageKeyword> requests per organization per server. Required.</para>
       </summary>
       <returns>
-        <para>Type: <see href="https://msdn.microsoft.com/library/system.int32.aspx">Int32</see>The maximum number of concurrent <see langword="ExecuteQuickFind" /> requests per organization per server. The default value is -1, which means that the requests are not throttled. </para>
+        <para>Type: <see href="https://msdn.microsoft.com/library/system.int32.aspx">Int32</see>The maximum number of concurrent <languageKeyword>ExecuteQuickFind</languageKeyword> requests per organization per server. The default value is -1, which means that the requests are not throttled. </para>
       </returns>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.MultiEntityQuickFindSettings.MultiEntityQuickFindMaxRequestsPerServer">
       <summary>
-        <para>Gets or sets the maximum number of concurrent <see langword="ExecuteQuickFind" /> requests per server. Required.</para>
+        <para>Gets or sets the maximum number of concurrent <languageKeyword>ExecuteQuickFind</languageKeyword> requests per server. Required.</para>
       </summary>
       <returns>
-        <para>Type: <see href="https://msdn.microsoft.com/library/system.int32.aspx">Int32</see>The maximum number of concurrent <see langword="ExecuteQuickFind" /> requests per server. The default value is -1, which means that the requests are not throttled.</para>
+        <para>Type: <see href="https://msdn.microsoft.com/library/system.int32.aspx">Int32</see>The maximum number of concurrent <languageKeyword>ExecuteQuickFind</languageKeyword> requests per server. The default value is -1, which means that the requests are not throttled.</para>
       </returns>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.Organization.BaseCurrencyCode">
@@ -2001,15 +1964,15 @@ The name of the SQL server on which the organization database is installed.</par
         <para>Type: <see href="https://msdn.microsoft.com/library/system.boolean.aspx">Boolean</see>true if information is being collected for the customer experience improvement program; otherwise, false.</para>
       </returns>
       <remarks>
-        <para>This property is optional when using the <see cref="T:Microsoft.Xrm.Sdk.Deployment.BeginCreateOrganizationRequest" /> class. If not specified the value is <see langword="false" />. This property cannot be updated after the organization is created.</para>
+        <para>This property is optional when using the <see cref="T:Microsoft.Xrm.Sdk.Deployment.BeginCreateOrganizationRequest" /> class. If not specified the value is <languageKeyword>false</languageKeyword>. This property cannot be updated after the organization is created.</para>
       </remarks>Microsoft Customer Experience Improvement Programhttp://www.microsoft.com/products/ceip/EN-US/default.mspx</member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.Organization.SrsUrl">
       <summary>
-        <para>Gets or sets the URL of the Microsoft SQL Server on which the Microsoft Dynamics 365 Connector for SQL Server Reporting Services is installed.</para>
+        <para>Gets or sets the URL of the Microsoft SQL Server on which the Microsoft Dynamics CRM Connector for SQL Server Reporting Services is installed.</para>
       </summary>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see>
-The URL of the Microsoft SQL Server on which the Microsoft Dynamics 365 Connector for SQL Server Reporting Services is installed.</para>
+The URL of the Microsoft SQL Server on which the Microsoft Dynamics CRM Connector for SQL Server Reporting Services is installed.</para>
       </returns>
       <remarks>
         <para>This property is required when using the <see cref="T:Microsoft.Xrm.Sdk.Deployment.BeginCreateOrganizationRequest" /> class. This property is optional when using the <see cref="T:Microsoft.Xrm.Sdk.Deployment.BeginUpdateOrganizationRequest" /> class.</para>
@@ -2071,9 +2034,7 @@ The current updated version of organization.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.OrganizationUserInfo.ExtensionData">
       <summary>
-        <para>
-          Gets or sets the structure that contains extra data.
-        </para>
+        <para>Gets or sets the structure that contains extra data.</para>
       </summary>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.runtime.serialization.extensiondataobject.aspx">ExtensionDataObject</see></para>
@@ -2109,10 +2070,10 @@ The current updated version of organization.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.QuickFindSettings.QuickFindEntityIndexLimit">
       <summary>
-        <para>Gets or sets the maximum number of the attributes used in the quick find search query, after which the <see langword="QuickFind" /> indexes are not created. Required.</para>
+        <para>Gets or sets the maximum number of the attributes used in the quick find search query, after which the <languageKeyword>QuickFind</languageKeyword> indexes are not created. Required.</para>
       </summary>
       <returns>
-        <para>Type: <see href="https://msdn.microsoft.com/library/system.int32.aspx">Int32</see>The maximum number of the attributes used in the quick find search query, after which the <see langword="QuickFind" /> indexes are not created. The default value for this setting is 20.</para>
+        <para>Type: <see href="https://msdn.microsoft.com/library/system.int32.aspx">Int32</see>The maximum number of the attributes used in the quick find search query, after which the <languageKeyword>QuickFind</languageKeyword> indexes are not created. The default value for this setting is 20.</para>
       </returns>
       <remarks>
         <para />
@@ -2131,9 +2092,7 @@ The current updated version of organization.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.RequestCheckResult.Description">
       <summary>
-        <para>
-          For internal use only.
-        </para>
+        <para>For internal use only.</para>
       </summary>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see></para>
@@ -2142,9 +2101,7 @@ The current updated version of organization.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.RequestCheckResult.Level">
       <summary>
-        <para>
-          For internal use only.
-        </para>
+        <para>For internal use only.</para>
       </summary>
       <returns>
         <para>Type: <see cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentErrorLevel" /></para>
@@ -2153,9 +2110,7 @@ The current updated version of organization.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.RequestCheckResult.Tag">
       <summary>
-        <para>
-          For internal use only.
-        </para>
+        <para>For internal use only.</para>
       </summary>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see></para>
@@ -2209,7 +2164,7 @@ The current updated version of organization.</para>
       <returns>
         <para>Type: <see cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType" />The type of deployment entity to be retrieved.</para>
       </returns>
-      <remarks />Deployment entities and deployment configuration settings</member>
+      <remarks />Use Deployment Entities and Deployment Configuration Settings</member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.RetrieveAllResponse.InstanceTags">
       <summary>
         <para>Gets or sets the collection of IDs or instance tags for all the deployment records retrieved.</para>
@@ -2230,7 +2185,7 @@ The current updated version of organization.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.RetrieveMonitoringResultsRequest.Roles">
       <summary>
-        <para>Gets or sets the Dynamics 365 roles to filter the test result data.</para>
+        <para>Gets or sets the CRM roles to filter the test result data.</para>
       </summary>
       <returns>
         <para>Type <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see>Roles to filter the test results.</para>
@@ -2337,22 +2292,22 @@ The current updated version of organization.</para>
       <returns>
         <para>Type: <see cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentObject" />The record that was retrieved.</para>
       </returns>
-      <remarks />Deployment web service object model</member>
+      <remarks />Deployment Web Service Object Model</member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.RetrieveUserMappingRequest.DatabaseName">
       <summary>
-        <para>Gets or sets the name of the Dynamics 365 database to import from.</para>
+        <para>Gets or sets the name of the CRM database to import from.</para>
       </summary>
       <returns>
-        <para>Type <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see>Name of the Dynamics 365 database to import from.</para>
+        <para>Type <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see>Name of the CRM database to import from.</para>
       </returns>
       <remarks />
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.RetrieveUserMappingRequest.SqlServerName">
       <summary>
-        <para>Gets or sets the name of the Microsoft SQL Server instance that hosts the Dynamics 365 database from where you want to import.</para>
+        <para>Gets or sets the name of the Microsoft SQL Server instance that hosts the CRM database from where you want to import.</para>
       </summary>
       <returns>
-        <para>Type <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see>Name of the Microsoft SQL Server instance that hosts the Dynamics 365 database from where you want to import.</para>
+        <para>Type <see href="https://msdn.microsoft.com/library/system.string.aspx">String</see>Name of the Microsoft SQL Server instance that hosts the CRM database from where you want to import.</para>
       </returns>
       <remarks />
     </member>
@@ -2542,12 +2497,12 @@ The version number of the server.</para>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.boolean.aspx">Boolean</see>true to allow Active Directory authentication; otherwise, false.</para>
       </returns>
       <remarks>
-        <para>The default value for Microsoft Dynamics 365 (online) is false, and for Microsoft Dynamics 365 on premises the default value is true.</para>
+        <para>The default value for Microsoft Dynamics CRM Online is false, and for Microsoft Dynamics CRM on premises the default value is true.</para>
       </remarks>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.ServerSideSyncEmailSettings.AllowBasicAuthenticationOnNonSecureChannel">
       <summary>
-        <para>Gets or sets a value that specifies whether Microsoft Dynamics 365 is allowed to connect to an email server on a non-secure channel using Basic/Clear Text authentication, for both outgoing and incoming email.</para>
+        <para>Gets or sets a value that specifies whether Microsoft Dynamics CRM is allowed to connect to an email server on a non-secure channel using Basic/Clear Text authentication, for both outgoing and incoming email.</para>
       </summary>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.boolean.aspx">Boolean</see>true to allow basic authentication; otherwise, false.</para>
@@ -2565,7 +2520,7 @@ The version number of the server.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.ServerSideSyncEmailSettings.AllowNonSSLEmail">
       <summary>
-        <para>Gets or sets a value that specifies whether Microsoft Dynamics 365 is allowed to connect to an email server on a non-secure channel, for both outgoing and incoming email.</para>
+        <para>Gets or sets a value that specifies whether Microsoft Dynamics CRM is allowed to connect to an email server on a non-secure channel, for both outgoing and incoming email.</para>
       </summary>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.boolean.aspx">Boolean</see>true to allow non-secure email; otherwise, false.</para>
@@ -2646,7 +2601,7 @@ The version number of the server.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.ServerSideSyncEmailSettings.LogEwsResponseHttpHeaders">
       <summary>
-        <para>Gets or sets a value that specifies whether to enable logging of Exchange web services response headers in Microsoft Dynamics 365 traces.</para>
+        <para>Gets or sets a value that specifies whether to enable logging of Exchange web services response headers in Microsoft Dynamics CRM traces.</para>
       </summary>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.boolean.aspx">Boolean</see>true if logging is enabled; otherwise, false.</para>
@@ -2736,7 +2691,7 @@ The version number of the server.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.ServerSideSyncEmailSettings.ProcessEmailSinceMaximumDaysAllowed">
       <summary>
-        <para>Gets or sets the maximum number of days before the current date or time that server-side synchronization can be configured to process email. This information is provided in an email server profile record in Microsoft Dynamics 365.</para>
+        <para>Gets or sets the maximum number of days before the current date or time that server-side synchronization can be configured to process email. This information is provided in an email server profile record in Microsoft Dynamics CRM.</para>
       </summary>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.int32.aspx">Int32</see>The maximum number of days.</para>
@@ -2763,8 +2718,7 @@ The version number of the server.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.ServerSideSyncQueueSettings.ActivitiesDequedPerEvent">
       <summary>
-        <para>
-          Gets or sets the number of activities to be removed from a queue per asynchronous event.</para>
+        <para>Gets or sets the number of activities to be removed from a queue per asynchronous event.</para>
       </summary>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.int32.aspx">Int32</see> The number of activities to be removed.</para>
@@ -2955,7 +2909,7 @@ The version number of the server.</para>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.int32.aspx">Int32</see>The maximum number of concurrent execute multiple operations per organization.</para>
       </returns>
-      <remarks />Use ExecuteMultiple to improve performance for bulk data load</member>
+      <remarks />Use ExecuteMultiple to Improve Performance for Bulk Data Load</member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.ThrottleSettings.ExecuteMultiplePerOrgMaxConnectionsPerServer">
       <summary>
         <para>Gets or sets the maximum number of concurrent execute multiple operations per organization per server.</para>
@@ -2963,12 +2917,10 @@ The version number of the server.</para>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.int32.aspx">Int32</see>The maximum number of concurrent execute multiple operations per organization per server.</para>
       </returns>
-      <remarks />Use ExecuteMultiple to improve performance for bulk data load</member>
+      <remarks />Use ExecuteMultiple to Improve Performance for Bulk Data Load</member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.ThrottleSettings.FollowInYammerMaxConnectionsPerServer">
       <summary>
-        <para>
-          For internal use only.
-        </para>
+        <para>For internal use only.</para>
       </summary>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.int32.aspx">Int32</see></para>
@@ -2977,9 +2929,7 @@ The version number of the server.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.ThrottleSettings.FollowInYammerPerOrgMaxConnectionsPerServer">
       <summary>
-        <para>
-          For internal use only.
-        </para>
+        <para>For internal use only.</para>
       </summary>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.int32.aspx">Int32</see></para>
@@ -3060,7 +3010,7 @@ The version number of the server.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.ThrottleSettings.OutlookSyncMaxConnectionsPerServer">
       <summary>
-        <para>Gets or sets the server setting to control the maximum number of Dynamics 365 for Outlook sync operations.</para>
+        <para>Gets or sets the server setting to control the maximum number of Dynamics CRM for Outlook sync operations.</para>
       </summary>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.int32.aspx">Int32</see>The maximum number of sync operations.</para>
@@ -3069,7 +3019,7 @@ The version number of the server.</para>
     </member>
     <member name="P:Microsoft.Xrm.Sdk.Deployment.ThrottleSettings.OutlookSyncPerOrgMaxConnectionsPerServer">
       <summary>
-        <para>Gets or sets the server setting to control the maximum number of Dynamics 365 for Outlook sync operations per organization.</para>
+        <para>Gets or sets the server setting to control the maximum number of Dynamics CRM for Outlook sync operations per organization.</para>
       </summary>
       <returns>
         <para>Type: <see href="https://msdn.microsoft.com/library/system.int32.aspx">Int32</see>The maximum number of sync operations per organization.</para>
@@ -3308,27 +3258,21 @@ The size limit of the trace file in MB.</para>
     </member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.AddCrmDatabaseRequest">
       <summary>
-        <para>Contains the data that is needed to add a Microsoft Dynamics 365 organization database to your deployment from a database backup or from a detached database.</para>
+        <para>Contains the data that is needed to add a Microsoft Dynamics CRM organization database to your deployment from a database backup or from a detached database.</para>
       </summary>
       <remarks>
-        <para>
-            Usage
-          </para>
+        <para>Usage</para>
         <para>Pass an instance of this class to the <see cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Execute(Microsoft.Xrm.Sdk.Deployment.DeploymentServiceRequest)" /> method, which returns an instance of the <see cref="T:Microsoft.Xrm.Sdk.Deployment.AddCrmDatabaseResponse" /> class.</para>
-        <para>
-            Notes for Callers
-          </para>
+        <para>Notes for Callers</para>
         <para>You can also use the <see href="https://technet.microsoft.com/en-us/library/dn833078.aspx">Add-CrmDatabase</see>Windows PowerShell command. For more information, see <see href="http://go.microsoft.com/fwlink/p/?LinkId=403369">Microsoft Dynamics CRM PowerShell Reference</see>.</para>
       </remarks>
-      <seealso cref="T:Microsoft.Xrm.Sdk.Deployment.AddCrmDatabaseResponse" />Deployment web service messagesAdd-CrmDatabasehttps://technet.microsoft.com/en-us/library/dn833078.aspx</member>
+      <seealso cref="T:Microsoft.Xrm.Sdk.Deployment.AddCrmDatabaseResponse" />Deployment Web Service MessagesAdd-CrmDatabasehttps://technet.microsoft.com/en-us/library/dn833078.aspx</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.AddCrmDatabaseResponse">
       <summary>
         <para>Contains the response from <see cref="T:Microsoft.Xrm.Sdk.Deployment.AddCrmDatabaseRequest" />.</para>
       </summary>
       <remarks>
-        <para>
-            There is no return value from this operation.
-          </para>
+        <para>There is no return value from this operation.</para>
       </remarks>
     </member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.AddDeploymentAdministratorRequest">
@@ -3336,13 +3280,9 @@ The size limit of the trace file in MB.</para>
         <para>Contains the data that is needed to add a deployment administrator. The user must already exist in Active Directory.</para>
       </summary>
       <remarks>
-        <para>
-            Usage
-          </para>
+        <para>Usage</para>
         <para>Pass an instance of this class to the <see cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Execute(Microsoft.Xrm.Sdk.Deployment.DeploymentServiceRequest)" /> method, which returns an instance of <see cref="T:Microsoft.Xrm.Sdk.Deployment.AddDeploymentAdministratorResponse" />.</para>
-        <para>
-            Notes for Callers
-          </para>
+        <para>Notes for Callers</para>
         <para>You can also use the <see href="https://technet.microsoft.com/en-us/library/dn833060.aspx">New-CrmDeploymentAdministrator</see>Windows PowerShell command. For more information, see <see href="http://go.microsoft.com/fwlink/p/?LinkID=313999">Administer the deployment using Windows PowerShell</see>.</para>
       </remarks>
       <example>
@@ -3354,15 +3294,13 @@ request.Name = Config.AdminDomain + "\\" + userName;
 _deploymentService.Execute(request);
 </code>
       </example>
-      <seealso cref="T:Microsoft.Xrm.Sdk.Deployment.AddDeploymentAdministratorResponse" />Deployment web service messagesNew-CrmDeploymentAdministratorhttps://technet.microsoft.com/en-us/library/dn833060.aspx</member>
+      <seealso cref="T:Microsoft.Xrm.Sdk.Deployment.AddDeploymentAdministratorResponse" />Deployment Web Service MessagesNew-CrmDeploymentAdministratorhttps://technet.microsoft.com/en-us/library/dn833060.aspx</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.AddDeploymentAdministratorResponse">
       <summary>
         <para>Contains the response from the <see cref="T:Microsoft.Xrm.Sdk.Deployment.AddDeploymentAdministratorRequest" />.</para>
       </summary>
       <remarks>
-        <para>
-            There is no return value from this operation.
-          </para>
+        <para>There is no return value from this operation.</para>
       </remarks>
       <seealso cref="T:Microsoft.Xrm.Sdk.Deployment.AddDeploymentAdministratorRequest" />
     </member>
@@ -3385,11 +3323,11 @@ _deploymentService.Execute(request);
     </member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.AsyncSettings">
       <summary>
-        <para>Contains setting values that can be changed to tune a Microsoft Dynamics 365 deployment.</para>
+        <para>Contains setting values that can be changed to tune a Microsoft Dynamics CRM deployment.</para>
       </summary>
       <remarks>
         <para>You can also use Windows PowerShell to retrieve or update these settings.</para>
-      </remarks>Deployment web service messagesDeployment entities and deployment configuration settingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
+      </remarks>Deployment Web Service MessagesUse Deployment Entities and Deployment Configuration SettingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.AttributeCollection">
       <summary>
         <para>Contains a collection of attributes.</para>
@@ -3400,9 +3338,7 @@ _deploymentService.Execute(request);
     </member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.BaseData">
       <summary>
-        <para>
-          For internal use only.
-        </para>
+        <para>For internal use only.</para>
       </summary>
       <remarks />
     </member>
@@ -3411,13 +3347,9 @@ _deploymentService.Execute(request);
         <para>Contains the data that is needed to initiate the asynchronous operation to create an organization.</para>
       </summary>
       <remarks>
-        <para>
-            Usage
-          </para>
+        <para>Usage</para>
         <para>Pass an instance of this class to the <see cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Execute(Microsoft.Xrm.Sdk.Deployment.DeploymentServiceRequest)" /> method, which returns an instance of <see cref="T:Microsoft.Xrm.Sdk.Deployment.BeginCreateOrganizationResponse" />.</para>
-        <para>
-            Notes for Callers
-          </para>
+        <para>Notes for Callers</para>
         <para>You can also use the <see href="https://technet.microsoft.com/en-us/library/dn833086.aspx">New-CrmOrganization</see>Windows PowerShell command. For more information, see <see href="http://go.microsoft.com/fwlink/p/?LinkID=313999">Administer the deployment using Windows PowerShell</see>.</para>
         <para>You can use the <see href="https://technet.microsoft.com/en-us/library/dn833061.aspx">Get-CrmOperationStatus</see>Windows PowerShell command to check the status of this asynchronous request. Or, you can use the <see cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveRequest" /> message using the <see cref="P:Microsoft.Xrm.Sdk.Deployment.DeferredOperationResponse.OperationId" /> property to set the <see cref="P:Microsoft.Xrm.Sdk.Deployment.RetrieveRequest.InstanceTag" /> property.</para>
       </remarks>
@@ -3465,9 +3397,7 @@ _deploymentService.Execute(request);
         <para>Contains the response from the<see cref="T:Microsoft.Xrm.Sdk.Deployment.BeginCreateOrganizationRequest" />.</para>
       </summary>
       <remarks>
-        <para>
-            There is no return value from this operation.
-          </para>
+        <para>There is no return value from this operation.</para>
       </remarks>
       <seealso cref="T:Microsoft.Xrm.Sdk.Deployment.BeginCreateOrganizationRequest" />
     </member>
@@ -3476,13 +3406,9 @@ _deploymentService.Execute(request);
         <para>Contains the data that is needed to begin the asynchronous operation to import an organization.</para>
       </summary>
       <remarks>
-        <para>
-            Usage
-          </para>
+        <para>Usage</para>
         <para>Pass an instance of this class to the <see cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Execute(Microsoft.Xrm.Sdk.Deployment.DeploymentServiceRequest)" /> method, which returns an instance of <see cref="T:Microsoft.Xrm.Sdk.Deployment.BeginImportOrganizationResponse" />.</para>
-        <para>
-            Notes for Callers
-          </para>
+        <para>Notes for Callers</para>
         <para>You can also use the <see href="https://technet.microsoft.com/en-us/library/dn833059.aspx">Import-CrmOrganization</see>Windows PowerShell command. For more information, see <see href="http://go.microsoft.com/fwlink/p/?LinkID=313999">Administer the deployment using Windows PowerShell</see>.</para>
         <para>You can use the <see href="https://technet.microsoft.com/en-us/library/dn833061.aspx">Get-CrmOperationStatus</see>Windows PowerShell command to check the status of this asynchronous request. Or, you can use the <see cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveRequest" /> message using the <see cref="P:Microsoft.Xrm.Sdk.Deployment.DeferredOperationResponse.OperationId" /> property to set the <see cref="P:Microsoft.Xrm.Sdk.Deployment.RetrieveRequest.InstanceTag" /> property.</para>
       </remarks>
@@ -3507,9 +3433,7 @@ If (importOrgOperationStatus.State == DeferredOperationState.Completed)
         <para>Contains the response from the <see cref="T:Microsoft.Xrm.Sdk.Deployment.BeginImportOrganizationRequest" />.</para>
       </summary>
       <remarks>
-        <para>
-            There is no return value from this operation.
-          </para>
+        <para>There is no return value from this operation.</para>
       </remarks>
       <seealso cref="T:Microsoft.Xrm.Sdk.Deployment.BeginImportOrganizationRequest" />
     </member>
@@ -3520,16 +3444,14 @@ If (importOrgOperationStatus.State == DeferredOperationState.Completed)
       <remarks>
         <para>Pass an instance of this class to the <see cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Execute(Microsoft.Xrm.Sdk.Deployment.DeploymentServiceRequest)" /> method, which returns an instance of <see cref="T:Microsoft.Xrm.Sdk.Deployment.BeginUpdateOrganizationRequest" />.</para>
         <para>You can also use the <see href="https://technet.microsoft.com/en-us/library/dn833062.aspx">Update-CrmOrganization</see>Windows PowerShell command. For more information, see <see href="http://go.microsoft.com/fwlink/p/?LinkID=313999">Administer the deployment using Windows PowerShell</see>.</para>
-        <para>You can use the <see href="https://technet.microsoft.com/en-us/library/dn833061.aspx">Get-CrmOperationStatus</see><see langword="" />Windows PowerShell command to check the status of this asynchronous request. Or, you can use the <see cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveRequest" /> message using the <see cref="P:Microsoft.Xrm.Sdk.Deployment.DeferredOperationResponse.OperationId" /> property to set the <see cref="P:Microsoft.Xrm.Sdk.Deployment.RetrieveRequest.InstanceTag" /> property.</para>
-      </remarks>Deployment web service messages<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.BeginUpdateOrganizationResponse" />Update-CrmOrganizationhttps://technet.microsoft.com/en-us/library/dn833062.aspxGet-CrmOperationStatushttps://technet.microsoft.com/en-us/library/dn833061.aspx</member>
+        <para>You can use the <see href="https://technet.microsoft.com/en-us/library/dn833061.aspx">Get-CrmOperationStatus</see><languageKeyword />Windows PowerShell command to check the status of this asynchronous request. Or, you can use the <see cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveRequest" /> message using the <see cref="P:Microsoft.Xrm.Sdk.Deployment.DeferredOperationResponse.OperationId" /> property to set the <see cref="P:Microsoft.Xrm.Sdk.Deployment.RetrieveRequest.InstanceTag" /> property.</para>
+      </remarks>Deployment Web Service Messages<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.BeginUpdateOrganizationResponse" />Update-CrmOrganizationhttps://technet.microsoft.com/en-us/library/dn833062.aspxGet-CrmOperationStatushttps://technet.microsoft.com/en-us/library/dn833061.aspx</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.BeginUpdateOrganizationResponse">
       <summary>
         <para>Contains the response from the<see cref="T:Microsoft.Xrm.Sdk.Deployment.BeginUpdateOrganizationRequest" />.</para>
       </summary>
       <remarks>
-        <para>
-            There is no return value from this operation.
-          </para>
+        <para>There is no return value from this operation.</para>
       </remarks>
       <seealso cref="T:Microsoft.Xrm.Sdk.Deployment.BeginUpdateOrganizationRequest" />
     </member>
@@ -3547,9 +3469,7 @@ If (importOrgOperationStatus.State == DeferredOperationState.Completed)
         <para>Contains the response from the<see cref="T:Microsoft.Xrm.Sdk.Deployment.BeginUpgradeOrganizationRequest" />.</para>
       </summary>
       <remarks>
-        <para>
-            There is no return value from this operation.
-          </para>
+        <para>There is no return value from this operation.</para>
       </remarks>
       <seealso cref="T:Microsoft.Xrm.Sdk.Deployment.BeginUpgradeOrganizationRequest" />
     </member>
@@ -3571,13 +3491,13 @@ If (importOrgOperationStatus.State == DeferredOperationState.Completed)
 //Disable Claims using SDK
 claimsSettings.Enabled = false;
 deploymentService.Update(claimsSettings);</code>
-      </example>Deployment entities and deployment configuration settingsActive Directory and claims-based authentication</member>
+      </example>Use Deployment Entities and Deployment Configuration SettingsActive Directory and Claims-Based Authentication</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.ClaimsSettingsBase">
       <summary>
         <para>Base class for claims settings types.</para>
       </summary>
       <remarks />
-      <seealso cref="T:Microsoft.Xrm.Sdk.Deployment.OAuthClaimsSettings" />Deployment entities and deployment configuration settings</member>
+      <seealso cref="T:Microsoft.Xrm.Sdk.Deployment.OAuthClaimsSettings" />Deployment Entities and Deployment Configuration Settings</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.ConfigurationEntity">
       <summary>
         <para>Contains attributes for a specific table in the configuration database.</para>
@@ -3590,14 +3510,14 @@ deploymentService.Update(claimsSettings);</code>
       <summary>
         <para>Server level settings that control use of custom code.</para>
       </summary>
-      <remarks />Deployment entities and deployment configuration settings</member>
+      <remarks />Use Deployment Entities and Deployment Configuration Settings</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.DashboardSettings">
       <summary>
         <para>Server level dashboard settings.</para>
       </summary>
       <remarks>
-        <para>You can also use Windows PowerShell to get or set this value. For more information, see Set the number of dashboard controls.</para>
-      </remarks>Analyze data with dashboards</member>
+        <para>You can also use Windows PowerShell to get or set this value. For more information, see Set the Number of Dashboard Controls.</para>
+      </remarks>Analyze Data with Dashboards</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.DeferredOperationError">
       <summary>
         <para>Contains information about an error that occurred with a deferred operation.</para>
@@ -3613,17 +3533,17 @@ deploymentService.Update(claimsSettings);</code>
       <summary>
         <para>Base class for all asynchronous requests for the deployment Web service.</para>
       </summary>
-      <remarks />Deployment web service messages<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.BeginCreateOrganizationRequest" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.BeginUpdateOrganizationRequest" /></member>
+      <remarks />Deployment Web Service Messages<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.BeginCreateOrganizationRequest" /><seealso cref="T:Microsoft.Xrm.Sdk.Deployment.BeginUpdateOrganizationRequest" /></member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.DeferredOperationResponse">
       <summary>
         <para>Base class for all asynchronous responses for the deployment Web service.</para>
       </summary>
-      <remarks />Deployment web service messages</member>
+      <remarks />Deployment Web Service Messages</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.DeferredOperationState">
       <summary>
         <para>Describes the possible states for an asynchronous operation.</para>
       </summary>
-      <remarks />Deployment web service messages<seealso cref="P:Microsoft.Xrm.Sdk.Deployment.DeferredOperationStatus.State" /></member>
+      <remarks />Deployment Web Service Messages<seealso cref="P:Microsoft.Xrm.Sdk.Deployment.DeferredOperationStatus.State" /></member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.DeferredOperationState.Unknown">
       <summary>
         <para>Specifies that the operation state is unknown. Value = 0.</para>
@@ -3658,16 +3578,12 @@ deploymentService.Update(claimsSettings);</code>
     </member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.DeleteOrganizationRequest">
       <summary>
-        <para>Contains the data that’s needed to delete a Microsoft Dynamics 365 organization.</para>
+        <para>Contains the data that’s needed to delete a Microsoft Dynamics CRM organization.</para>
       </summary>
       <remarks>
-        <para>
-            Usage
-          </para>
+        <para>Usage</para>
         <para>Pass an instance of this class to the <see cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Execute(Microsoft.Xrm.Sdk.Deployment.DeploymentServiceRequest)" /> method, which returns an instance of the <see cref="T:Microsoft.Xrm.Sdk.Deployment.DeleteOrganizationResponse" /> class.</para>
-        <para>
-            Notes for Callers
-          </para>
+        <para>Notes for Callers</para>
         <para>You can also use the <see href="https://technet.microsoft.com/en-us/library/dn833057.aspx">Remove-CrmOrganization</see>Windows PowerShell command. For more information, see <see href="http://go.microsoft.com/fwlink/p/?LinkID=313999">Administer the deployment using Windows PowerShell</see>.</para>
       </remarks>
       <seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeleteOrganizationResponse" />Remove-CrmOrganizationhttps://technet.microsoft.com/en-us/library/dn833057.aspx</member>
@@ -3676,9 +3592,7 @@ deploymentService.Update(claimsSettings);</code>
         <para>Contains the response from <see cref="T:Microsoft.Xrm.Sdk.Deployment.DeleteOrganizationRequest" />.</para>
       </summary>
       <remarks>
-        <para>
-            There is no return value from this operation.
-          </para>
+        <para>There is no return value from this operation.</para>
       </remarks>
     </member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.DeleteRequest">
@@ -3687,7 +3601,7 @@ deploymentService.Update(claimsSettings);</code>
       </summary>
       <remarks>
         <para>Pass an instance of this class to the  <see cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Execute(Microsoft.Xrm.Sdk.Deployment.DeploymentServiceRequest)" /> method, which returns an instance of  <see cref="T:Microsoft.Xrm.Sdk.Deployment.DeleteResponse" />.</para>
-        <para>Note that this is the Deployment Web Service. To delete organization data records in Microsoft Dynamics 365, use <see cref="T:Microsoft.Xrm.Sdk.Messages.DeleteRequest" />.</para>
+        <para>Note that this is the Deployment Web Service. To delete organization data records in Microsoft Dynamics CRM, use <see cref="T:Microsoft.Xrm.Sdk.Messages.DeleteRequest" />.</para>
       </remarks>
       <example>
         <para>The following code shows how to delete an organization.</para>
@@ -3715,35 +3629,33 @@ deploymentService.Update(claimsSettings);</code>
     client.Close();
 }
 </code>
-      </example>Introduction to the deployment web service<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeleteResponse" /></member>
+      </example>Introduction to the Deployment Web Service<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeleteResponse" /></member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.DeleteResponse">
       <summary>
         <para>Contains the response from the <see cref="T:Microsoft.Xrm.Sdk.Deployment.DeleteRequest" />.</para>
       </summary>
       <remarks>
-        <para>
-            There is no return value from this operation.
-          </para>
+        <para>There is no return value from this operation.</para>
       </remarks>
       <seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeleteRequest" />
     </member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.DeploymentAdministrator">
       <summary>
-        <para>Contains information about a deployment administrator in a Microsoft Dynamics 365 deployment.</para>
+        <para>Contains information about a deployment administrator in a Microsoft Dynamics CRM deployment.</para>
       </summary>
       <remarks>
         <para>There can be multiple deployment administrators per deployment. You can also use Windows PowerShell to access the deployment administrator information.</para>
-      </remarks>Deployment web service messagesDeployment entities and deployment configuration settingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
+      </remarks>Deployment Web Service MessagesUse Deployment Entities and Deployment Configuration SettingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.DeploymentConfigSettings">
       <summary>
         <para>Base class for configuration settings entities.</para>
       </summary>
-      <remarks />Deployment entities and deployment configuration settings</member>
+      <remarks />Use Deployment Entities and Deployment Configuration Settings</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.DeploymentEntity">
       <summary>
         <para>Base class for deployment entities.</para>
       </summary>
-      <remarks />Deployment entities and deployment configuration settings</member>
+      <remarks />Use Deployment Entities and Deployment Configuration Settings</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType">
       <summary>
         <para>Describes the type of deployment entity.</para>
@@ -3829,11 +3741,6 @@ deploymentService.Update(claimsSettings);</code>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType.CustomCodeSettings">
       <summary>
         <para>The custom code settings entity. Value = 14.</para>
-      </summary>
-    </member>
-    <member name="F:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType.EmailConversationViewSettings">
-      <summary>
-        <para />
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.DeploymentEntityType.TeamSettings">
@@ -3947,7 +3854,7 @@ deploymentService.Update(claimsSettings);</code>
       <summary>
         <para>Implements <see cref="T:Microsoft.Xrm.Sdk.Deployment.IDeploymentService" /> interface and provides an authenticated WCF channel to the deployment service..</para>
       </summary>
-      <remarks />Introduction to the deployment web service<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.IDeploymentService" /></member>
+      <remarks />Introduction to the Deployment Web Service<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.IDeploymentService" /></member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceFault">
       <summary>
         <para>Represents a deployment service fault.</para>
@@ -3960,7 +3867,7 @@ deploymentService.Update(claimsSettings);</code>
       </summary>
       <remarks>
         <para>This is the base class for all deployment Web service requests. Pass an instance of a request class to the <see cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Execute(Microsoft.Xrm.Sdk.Deployment.DeploymentServiceRequest)" /> method.</para>
-      </remarks>Introduction to the deployment web serviceDeployment web service messages<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceResponse" /></member>
+      </remarks>Introduction to the Deployment Web ServiceDeployment Web Service Messages<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceResponse" /></member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.DeploymentServiceResponse">
       <summary>
         <para>Contains the response from the request and the base class for all deployment Web service responses.</para>
@@ -3968,19 +3875,14 @@ deploymentService.Update(claimsSettings);</code>
       <remarks>
         <para>This is the base class for all deployment Web service responses. An instance of a response class is returned from the <see cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Execute(Microsoft.Xrm.Sdk.Deployment.DeploymentServiceRequest)" /> method. </para>
         <para>Some messages do not have a return value.</para>
-      </remarks>Deployment web service messages</member>
+      </remarks>Deployment Web Service Messages</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.DupSettings">
       <summary>
         <para>Contains duplicate detection settings that can be used to tune a deployment.</para>
       </summary>
       <remarks>
         <para>You can also use Windows PowerShell to retrieve or update these settings.</para>
-      </remarks>Deployment web service messagesDeployment entities and deployment configuration settingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
-    <member name="T:Microsoft.Xrm.Sdk.Deployment.EmailConversationViewSettings">
-      <summary>
-        <para />
-      </summary>
-    </member>
+      </remarks>Deployment Web Service MessagesUse Deployment Entities and Deployment Configuration SettingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.EntityInstanceId">
       <summary>
         <para>Contains the information needed to identify a deployment entity record: deployment entity type and ID.</para>
@@ -4005,7 +3907,7 @@ deploymentService.Update(claimsSettings);</code>
       <summary>
         <para>Provides programmatic access to deployment information.</para>
       </summary>
-      <remarks />Introduction to the deployment web service</member>
+      <remarks />Introduction to the Deployment Web Service</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.IDeploymentServiceChannel">
       <summary>
         <para>Interface for the deployment web service channel.</para>
@@ -4016,14 +3918,14 @@ deploymentService.Update(claimsSettings);</code>
       <summary>
         <para>Contains settings for configuring Internet-facing deployments (IFDs).</para>
       </summary>
-      <remarks />Deployment entities and deployment configuration settings</member>
+      <remarks />Use Deployment Entities and Deployment Configuration Settings</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.ImportSettings">
       <summary>
         <para>Contains settings that can be changed to tune data import.</para>
       </summary>
       <remarks>
         <para>You can also use Windows PowerShell to retrieve or update these settings.</para>
-      </remarks>Deployment web service messagesDeployment entities and deployment configuration settingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999Import data</member>
+      </remarks>Deployment Web Service MessagesUse Deployment Entities and Deployment Configuration SettingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999Import Data in Microsoft Dynamics CRM</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.ImportUserMappingMethod">
       <summary>
         <para>Defines the possible methods for mapping users when importing an organization.</para>
@@ -4032,12 +3934,12 @@ deploymentService.Update(claimsSettings);</code>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ImportUserMappingMethod.KeepExisting">
       <summary>
-        <para>Specifies to keep the existing user mappings in the organization database. Typically, you select this option if you’re importing an organization database that is located in the same Active Directory domain as the Microsoft Dynamics 365 server where the organization is to be imported. For users external to the Active Directory domain, who were added with their UPN, the user information will be mapped across without any changes or validation. Value = 0.</para>
+        <para>Specifies to keep the existing user mappings in the organization database. Typically, you select this option if you’re importing an organization database that is located in the same Active Directory domain as the Microsoft Dynamics CRM server where the organization is to be imported. For users external to the Active Directory domain, who were added with their UPN, the user information will be mapped across without any changes or validation. Value = 0.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ImportUserMappingMethod.ByAccount">
       <summary>
-        <para>Specifies to automatically map the users' Active Directory account names to Microsoft Dynamics 365 accounts. Value = 1.</para>
+        <para>Specifies to automatically map the users' Active Directory account names to Microsoft Dynamics CRM accounts. Value = 1.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ImportUserMappingMethod.ByMappingXml">
@@ -4094,12 +3996,12 @@ deploymentService.Update(claimsSettings);</code>
     </member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.MarketplaceSettings">
       <summary>
-        <para>Contains settings for the Microsoft AppSource.</para>
+        <para>Contains settings for the Microsoft Dynamics Marketplace.</para>
       </summary>
-      <remarks />Deployment web service messagesDeployment entities and deployment configuration settingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999Microsoft Dynamics CRM Marketplacehttps://go.microsoft.com/fwlink/p/?LinkId=786912</member>
+      <remarks />Deployment Web Service MessagesUse Deployment Entities and Deployment Configuration SettingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999Microsoft Dynamics CRM Marketplacehttps://go.microsoft.com/fwlink/p/?LinkId=786912</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.MonitoringResultData">
       <summary>
-        <para>Contains information about the result of a test run by the Microsoft Dynamics 365 monitoring service.</para>
+        <para>Contains information about the result of a test run by the Microsoft Dynamics CRM monitoring service.</para>
       </summary>
       <remarks />
     </member>
@@ -4108,15 +4010,15 @@ deploymentService.Update(claimsSettings);</code>
         <para>Contains settings used to manage or configure the monitoring service and the tests executed by the service.</para>
       </summary>
       <remarks>
-        <para>At this time, the only tests run are those that monitor the remaining life for certificates installed for Microsoft Dynamics 365.</para>
-      </remarks>Deployment web service messagesDeployment entities and deployment configuration settingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
+        <para>At this time, the only tests run are those that monitor the remaining life for certificates installed for Microsoft Dynamics CRM.</para>
+      </remarks>Deployment Web Service MessagesUse Deployment Entities and Deployment Configuration SettingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.MultiEntityQuickFindSettings">
       <summary>
         <para>Contains settings for multi-entity quick find (finds records of different types).</para>
       </summary>
       <remarks>
         <para>You can use Windows PowerShell to retrieve or update these settings.</para>
-      </remarks>Deployment web service messagesDeployment entities and deployment configuration settingsAdminister the deployment using Windows PowerShellhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
+      </remarks>Deployment Web Service MessagesUse Deployment Entities and Deployment Configuration SettingsAdminister the deployment using Windows PowerShellhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.OAuthClaimsSettings">
       <summary>
         <para>Contains the settings for claims based OAuth authentication.</para>
@@ -4124,11 +4026,11 @@ deploymentService.Update(claimsSettings);</code>
       <remarks />OAuth 2.0http://oauth.net/2/<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.ClaimsSettings" /></member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.Organization">
       <summary>
-        <para>Contains information about an organization in a Microsoft Dynamics 365 deployment.</para>
+        <para>Contains information about an organization in a Microsoft Dynamics CRM deployment.</para>
       </summary>
       <remarks>
         <para>The properties for an organization are set when the organization is created. Most of the properties can’t be updated after the fact. You can also use Windows PowerShell to access the same organization information.</para>
-      </remarks>Deployment web service messagesDeployment entities and deployment configuration settingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
+      </remarks>Deployment Web Service MessagesUse Deployment Entities and Deployment Configuration SettingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.OrganizationState">
       <summary>
         <para>Describes the state of the organization.</para>
@@ -4177,19 +4079,17 @@ deploymentService.Update(claimsSettings);</code>
 DeploymentServiceClient service = Microsoft.Xrm.Sdk.Deployment.Proxy.ProxyClientHelper.CreateClient(new Uri("http://MyServerName/XRMDeployment/2011/Deployment.svc"));
 
 </code>
-      </example>Introduction to the deployment web service</member>
+      </example>Introduction to the Deployment Web Service</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.QuickFindSettings">
       <summary>
         <para>Contains settings for quick find (finds records of one type).</para>
       </summary>
       <remarks>
         <para>You can use Windows PowerShell to retrieve or update these settings.</para>
-      </remarks>Deployment web service messagesDeployment entities and deployment configuration settingsAdminister the deployment using Windows PowerShellhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
+      </remarks>Deployment Web Service MessagesUse Deployment Entities and Deployment Configuration SettingsAdminister the deployment using Windows PowerShellhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.RequestCheckResult">
       <summary>
-        <para>
-          For internal use only.
-        </para>
+        <para>For internal use only.</para>
       </summary>
       <remarks />
     </member>
@@ -4227,19 +4127,15 @@ DeploymentServiceClient service = Microsoft.Xrm.Sdk.Deployment.Proxy.ProxyClient
     </member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.RetrieveMonitoringResultsRequest">
       <summary>
-        <para>Contains the data that’s required to retrieve results from the monitoring service operation tests for your Microsoft Dynamics 365 deployment.</para>
+        <para>Contains the data that’s required to retrieve results from the monitoring service operation tests for your Microsoft Dynamics CRM deployment.</para>
       </summary>
       <remarks>
-        <para>
-            Usage
-          </para>
+        <para>Usage</para>
         <para>Pass an instance of this class to the <see cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Execute(Microsoft.Xrm.Sdk.Deployment.DeploymentServiceRequest)" /> method, which returns an instance of the <see cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveMonitoringResultsResponse" /> class.</para>
-        <para>
-            Notes for Callers
-          </para>
+        <para>Notes for Callers</para>
         <para>You can also use the <see href="http://technet.microsoft.com/en-us/library/dn833074.aspx">Get-CrmMonitoringResult</see>Windows PowerShell command. For more information, see <see href="http://go.microsoft.com/fwlink/p/?LinkId=403369">Microsoft Dynamics CRM PowerShell Reference</see>.</para>
       </remarks>
-      <seealso cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveMonitoringResultsResponse" />Deployment web service messagesGet-CrmMonitoringResulthttp://technet.microsoft.com/en-us/library/dn833074.aspx</member>
+      <seealso cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveMonitoringResultsResponse" />Deployment Web Service MessagesGet-CrmMonitoringResulthttp://technet.microsoft.com/en-us/library/dn833074.aspx</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.RetrieveMonitoringResultsResponse">
       <summary>
         <para>Contains the response from <see cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveMonitoringResultsRequest" />.</para>
@@ -4278,7 +4174,7 @@ using (DeploymentServiceClient client = new DeploymentServiceClient("CustomBindi
     client.Close();
 }
 </code>
-        <para>The following is an example of an Organization class instance serialized to XML:</para>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Organization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;  &lt;ExtensionData /&gt;  &lt;BaseCurrencyCode&gt;USD&lt;/BaseCurrencyCode&gt;  &lt;BaseCurrencyName&gt;US Dollar&lt;/BaseCurrencyName&gt;  &lt;BaseCurrencyPrecision&gt;2&lt;/BaseCurrencyPrecision&gt;  &lt;BaseCurrencySymbol&gt;$&lt;/BaseCurrencySymbol&gt;  &lt;BaseLanguageCode&gt;1033&lt;/BaseLanguageCode&gt;  &lt;DatabaseName&gt;AlpineSkiHouse_MSCRM&lt;/DatabaseName&gt;  &lt;FriendlyName&gt;Alpine Ski House&lt;/FriendlyName&gt;  &lt;Id&gt;273c0010-5973-43d4-b666-8d899ca8c6ab&lt;/Id&gt;  &lt;SqlCollation&gt;Latin1_General_CI_AI&lt;/SqlCollation&gt;  &lt;SqlServerName&gt;CRM01&lt;/SqlServerName&gt;  &lt;SqmIsEnabled&gt;false&lt;/SqmIsEnabled&gt;  &lt;SrsUrl&gt;http://crm01/reportserver&lt;/SrsUrl&gt;  &lt;State&gt;Pending&lt;/State&gt;  &lt;UniqueName&gt;AlpineSkiHouse&lt;/UniqueName&gt;</example>Deployment entities and deployment configuration settings<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveResponse" />Administer the deployment using Windows PowerShellhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
+        <para>The following is an example of an Organization class instance serialized to XML:</para>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Organization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;  &lt;ExtensionData /&gt;  &lt;BaseCurrencyCode&gt;USD&lt;/BaseCurrencyCode&gt;  &lt;BaseCurrencyName&gt;US Dollar&lt;/BaseCurrencyName&gt;  &lt;BaseCurrencyPrecision&gt;2&lt;/BaseCurrencyPrecision&gt;  &lt;BaseCurrencySymbol&gt;$&lt;/BaseCurrencySymbol&gt;  &lt;BaseLanguageCode&gt;1033&lt;/BaseLanguageCode&gt;  &lt;DatabaseName&gt;AlpineSkiHouse_MSCRM&lt;/DatabaseName&gt;  &lt;FriendlyName&gt;Alpine Ski House&lt;/FriendlyName&gt;  &lt;Id&gt;273c0010-5973-43d4-b666-8d899ca8c6ab&lt;/Id&gt;  &lt;SqlCollation&gt;Latin1_General_CI_AI&lt;/SqlCollation&gt;  &lt;SqlServerName&gt;CRM01&lt;/SqlServerName&gt;  &lt;SqmIsEnabled&gt;false&lt;/SqmIsEnabled&gt;  &lt;SrsUrl&gt;http://crm01/reportserver&lt;/SrsUrl&gt;  &lt;State&gt;Pending&lt;/State&gt;  &lt;UniqueName&gt;AlpineSkiHouse&lt;/UniqueName&gt;</example>Use Deployment Entities and Deployment Configuration Settings<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveResponse" />Administer the deployment using Windows PowerShellhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.RetrieveResponse">
       <summary>
         <para>Contains the response from the <see cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveRequest" />.</para>
@@ -4288,16 +4184,12 @@ using (DeploymentServiceClient client = new DeploymentServiceClient("CustomBindi
     </member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.RetrieveUserMappingRequest">
       <summary>
-        <para>Contains the data needed to retrieve mapping information of existing users in a Microsoft Dynamics 365 organization.</para>
+        <para>Contains the data needed to retrieve mapping information of existing users in a Microsoft Dynamics CRM organization.</para>
       </summary>
       <remarks>
-        <para>
-            Usage
-          </para>
+        <para>Usage</para>
         <para>Pass an instance of this class to the <see cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Execute(Microsoft.Xrm.Sdk.Deployment.DeploymentServiceRequest)" /> method, which returns an instance of the <see cref="T:Microsoft.Xrm.Sdk.Deployment.RetrieveUserMappingResponse" /> class.</para>
-        <para>
-            Notes for Callers
-          </para>
+        <para>Notes for Callers</para>
         <para>You can also use the <see href="https://technet.microsoft.com/en-us/library/dn833071.aspx">Get-CrmOrganizationUserMap</see>Windows PowerShell command. For more information, see <see href="http://go.microsoft.com/fwlink/p/?LinkID=313999">Administer the deployment using Windows PowerShell</see>.</para>
         <para>The retrieved information is in an XML format, which can be used to map the existing users from the current organization in the target deployment.</para>
       </remarks>
@@ -4310,11 +4202,11 @@ using (DeploymentServiceClient client = new DeploymentServiceClient("CustomBindi
     </member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.Server">
       <summary>
-        <para>Contains information about a server in a Microsoft Dynamics 365 deployment.</para>
+        <para>Contains information about a server in a Microsoft Dynamics CRM deployment.</para>
       </summary>
       <remarks>
         <para>The properties for a server are set when the server is created. Most cannot be updated after the fact. You can also use Windows PowerShell to access the same organization information.</para>
-      </remarks>Deployment web service messagesDeployment entities and deployment configuration settingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
+      </remarks>Deployment Web Service MessagesUse Deployment Entities and Deployment Configuration SettingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.ServerRoles">
       <summary>
         <para>Describes specific server functionality, components, and services.</para>
@@ -4337,7 +4229,7 @@ using (DeploymentServiceClient client = new DeploymentServiceClient("CustomBindi
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.SrsDataConnector">
       <summary>
-        <para>The role that provides reporting functionality by interfacing with the Microsoft Dynamics 365 system and Microsoft SQL Server Reporting Services. Value = 4.</para>
+        <para>The role that provides reporting functionality by interfacing with the Microsoft Dynamics CRM system and Microsoft SQL Server Reporting Services. Value = 4.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.DiscoveryService">
@@ -4347,8 +4239,7 @@ using (DeploymentServiceClient client = new DeploymentServiceClient("CustomBindi
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.EmailService">
       <summary>
-        <para>
-          For internal use only.. Value = 0x10.</para>
+        <para>For internal use only.. Value = 0x10.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.WebService">
@@ -4358,14 +4249,12 @@ using (DeploymentServiceClient client = new DeploymentServiceClient("CustomBindi
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.OpsServer">
       <summary>
-        <para>
-          For internal use only.. Value = 0x40. </para>
+        <para>For internal use only.. Value = 0x40. </para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.WitnessServer">
       <summary>
-        <para>
-          For internal use only.. Value = 0x80.</para>
+        <para>For internal use only.. Value = 0x80.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.SqlServer">
@@ -4375,38 +4264,32 @@ using (DeploymentServiceClient client = new DeploymentServiceClient("CustomBindi
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.Portal">
       <summary>
-        <para>
-          For internal use only..   Value = 0x200.</para>
+        <para>For internal use only..   Value = 0x200.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.Provisioning">
       <summary>
-        <para>
-          For internal use only..   Value = 0x400.</para>
+        <para>For internal use only..   Value = 0x400.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.LivePlatform">
       <summary>
-        <para>
-          For internal use only.. Value = 0x800.</para>
+        <para>For internal use only.. Value = 0x800.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.Support">
       <summary>
-        <para>
-          For internal use only.. Value = 0x1000.</para>
+        <para>For internal use only.. Value = 0x1000.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.AdminWebService">
       <summary>
-        <para>
-          For internal use only.. Value = 0x2000.</para>
+        <para>For internal use only.. Value = 0x2000.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.Dns">
       <summary>
-        <para>
-          For internal use only.. Value = 0x4000.</para>
+        <para>For internal use only.. Value = 0x4000.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.ApiServer">
@@ -4416,31 +4299,27 @@ using (DeploymentServiceClient client = new DeploymentServiceClient("CustomBindi
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.ConfigSqlServer">
       <summary>
-        <para>
-          For internal use only.. Value = 0x10000. </para>
+        <para>For internal use only.. Value = 0x10000. </para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.ConfigWitnessServer">
       <summary>
-        <para>
-          For internal use only.. Value = 0x20000.</para>
+        <para>For internal use only.. Value = 0x20000.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.HelpServer">
       <summary>
-        <para>The role that makes Microsoft Dynamics 365 help available to users. Value = 0x40000.</para>
+        <para>The role that makes Microsoft Dynamics CRM help available to users. Value = 0x40000.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.StatsSqlServer">
       <summary>
-        <para>
-          For internal use only.. Value = 0x80000.</para>
+        <para>For internal use only.. Value = 0x80000.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.GeoSqlServer">
       <summary>
-        <para>
-          For internal use only.. Value = 0x100000.</para>
+        <para>For internal use only.. Value = 0x100000.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.DeploymentService">
@@ -4450,14 +4329,12 @@ using (DeploymentServiceClient client = new DeploymentServiceClient("CustomBindi
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.SiteSqlServer">
       <summary>
-        <para>
-          For internal use only.. Value = 0x400000.</para>
+        <para>For internal use only.. Value = 0x400000.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.ScaleGroupProvisioning">
       <summary>
-        <para>
-          For internal use only.. Value = 0x800000.</para>
+        <para>For internal use only.. Value = 0x800000.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.SandboxServer">
@@ -4467,25 +4344,22 @@ using (DeploymentServiceClient client = new DeploymentServiceClient("CustomBindi
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.DeploymentManagementTools">
       <summary>
-        <para>The role that allows the use of the Deployment Manager and Windows PowerShell cmdlets. Microsoft Dynamics 365 administrators can use the Windows PowerShell cmdlets to automate Deployment Manager tasks. Deployment Manager is a Microsoft Management Console (MMC) snap-in that system administrators can use to manage organizations, servers, and licenses for deployments of Microsoft Dynamics 365. Value = 0x4000000.</para>
+        <para>The role that allows the use of the Deployment Manager and Windows PowerShell cmdlets. Microsoft Dynamics CRM administrators can use the Windows PowerShell cmdlets to automate Deployment Manager tasks. Deployment Manager is a Microsoft Management Console (MMC) snap-in that system administrators can use to manage organizations, servers, and licenses for deployments of Microsoft Dynamics CRM. Value = 0x4000000.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.OnlineAnalyticsServer">
       <summary>
-        <para>
-          For internal use only.. Value = 0x8000000.</para>
+        <para>For internal use only.. Value = 0x8000000.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.OnlineAnalyticsSqlServer">
       <summary>
-        <para>
-          For internal use only.. Value = 0x10000000.</para>
+        <para>For internal use only.. Value = 0x10000000.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.VssWriter">
       <summary>
-        <para>
-          For internal use only.. Value = 0x20000000.</para>
+        <para>For internal use only.. Value = 0x20000000.</para>
       </summary>
     </member>
     <member name="F:Microsoft.Xrm.Sdk.Deployment.ServerRoles.EmailConnector">
@@ -4562,14 +4436,14 @@ using (DeploymentServiceClient client = new DeploymentServiceClient("CustomBindi
       <summary>
         <para>Contains settings about the Microsoft customer experience improvement program.</para>
       </summary>
-      <remarks />Deployment web service messagesDeployment entities and deployment configuration settingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999<seealso cref="P:Microsoft.Xrm.Sdk.Deployment.Organization.SqmIsEnabled" /></member>
+      <remarks />Deployment Web Service MessagesUse Deployment Entities and Deployment Configuration SettingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999<seealso cref="P:Microsoft.Xrm.Sdk.Deployment.Organization.SqmIsEnabled" /></member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.TeamSettings">
       <summary>
         <para>Contains settings for the auto created (system-managed) access teams.</para>
       </summary>
       <remarks>
         <para>You can use Windows PowerShell to retrieve or update these settings.</para>
-      </remarks>Deployment web service messagesDeployment entities and deployment configuration settingsAdminister the deployment using Windows PowerShellhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
+      </remarks>Deployment Web Service MessagesUse Deployment Entities and Deployment Configuration SettingsAdminister the deployment using Windows PowerShellhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.TestStatus">
       <summary>
         <para>Indicates the result of a monitoring service operation test.</para>
@@ -4595,14 +4469,14 @@ using (DeploymentServiceClient client = new DeploymentServiceClient("CustomBindi
       <summary>
         <para>Contains information about service throttling.</para>
       </summary>
-      <remarks />Deployment web service messagesDeployment entities and deployment configuration settingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999Import data</member>
+      <remarks />Deployment Web Service MessagesUse Deployment Entities and Deployment Configuration SettingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999Import Data in Microsoft Dynamics CRM</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.TraceSettings">
       <summary>
         <para>Contains trace settings for a deployment.</para>
       </summary>
       <remarks>
         <para>You can also use Windows PowerShell to retrieve or update these settings.</para>
-      </remarks>Deployment web service messagesDeployment entities and deployment configuration settingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
+      </remarks>Deployment Web Service MessagesUse Deployment Entities and Deployment Configuration SettingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.TrackingLicenseType">
       <summary>
         <para>Describes the type of license.</para>
@@ -4679,37 +4553,15 @@ using (DeploymentServiceClient client = new DeploymentServiceClient("CustomBindi
         <para>A device essential client access license (CAL). Value = 13.</para>
       </summary>
     </member>
-    <member name="F:Microsoft.Xrm.Sdk.Deployment.TrackingLicenseType.SalesCal">
-      <summary>
-        <para />
-      </summary>
-    </member>
-    <member name="F:Microsoft.Xrm.Sdk.Deployment.TrackingLicenseType.ServiceCal">
-      <summary>
-        <para />
-      </summary>
-    </member>
-    <member name="F:Microsoft.Xrm.Sdk.Deployment.TrackingLicenseType.FieldServiceCal">
-      <summary>
-        <para />
-      </summary>
-    </member>
-    <member name="F:Microsoft.Xrm.Sdk.Deployment.TrackingLicenseType.ProjectServiceCal">
-      <summary>
-        <para />
-      </summary>
-    </member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.TrackLicenseRequest">
       <summary>
         <para>Contains the data that is needed to track the licenses for a deployment.</para>
       </summary>
       <remarks>
         <para>Pass an instance of this class to the <see cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Execute(Microsoft.Xrm.Sdk.Deployment.DeploymentServiceRequest)" /> method, which returns an instance of <see cref="T:Microsoft.Xrm.Sdk.Deployment.TrackLicenseResponse" />.</para>
-        <para>
-            Notes for Callers
-          </para>
+        <para>Notes for Callers</para>
         <para>You can also use the <see href="https://technet.microsoft.com/en-us/library/dn833080.aspx">Get-CrmAccessLicense</see>Windows PowerShell command to retrieve license information. For more information, see <see href="http://go.microsoft.com/fwlink/p/?LinkID=313999">Administer the deployment using Windows PowerShell</see>. </para>
-      </remarks>Deployment entities and deployment configuration settings<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.TrackLicenseResponse" />Get-CrmAccessLicensehttps://technet.microsoft.com/en-us/library/dn833080.aspx</member>
+      </remarks>Use Deployment Entities and Deployment Configuration Settings<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.TrackLicenseResponse" />Get-CrmAccessLicensehttps://technet.microsoft.com/en-us/library/dn833080.aspx</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.TrackLicenseResponse">
       <summary>
         <para>Contains the response from the<see cref="T:Microsoft.Xrm.Sdk.Deployment.TrackLicenseRequest" />.</para>
@@ -4731,9 +4583,7 @@ using (DeploymentServiceClient client = new DeploymentServiceClient("CustomBindi
         <para>Contains the response from the<see cref="T:Microsoft.Xrm.Sdk.Deployment.UpdateAdvancedSettingsRequest" />.</para>
       </summary>
       <remarks>
-        <para>
-            There is no return value from this operation.
-          </para>
+        <para>There is no return value from this operation.</para>
       </remarks>
       <seealso cref="T:Microsoft.Xrm.Sdk.Deployment.UpdateAdvancedSettingsRequest" />
     </member>
@@ -4743,19 +4593,15 @@ using (DeploymentServiceClient client = new DeploymentServiceClient("CustomBindi
       </summary>
       <remarks>
         <para>Pass an instance of this class to the <see cref="M:Microsoft.Xrm.Sdk.Deployment.IDeploymentService.Execute(Microsoft.Xrm.Sdk.Deployment.DeploymentServiceRequest)" /> method, which returns an instance of <see cref="T:Microsoft.Xrm.Sdk.Deployment.UpdateProductKeyResponse" />.</para>
-        <para>
-            Notes for Callers
-          </para>
+        <para>Notes for Callers</para>
         <para>You can also use the <see href="https://technet.microsoft.com/en-us/library/dn833072.aspx">Set-CrmProductKey</see>Windows PowerShell command. For more information, see <see href="http://go.microsoft.com/fwlink/p/?LinkID=313999">Administer the deployment using Windows PowerShell</see>.</para>
-      </remarks>Introduction to the deployment web service<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.UpdateProductKeyResponse" />Set-CrmProductKeyhttps://technet.microsoft.com/en-us/library/dn833072.aspx</member>
+      </remarks>Introduction to the Deployment Web Service<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.UpdateProductKeyResponse" />Set-CrmProductKeyhttps://technet.microsoft.com/en-us/library/dn833072.aspx</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.UpdateProductKeyResponse">
       <summary>
         <para>Contains the response from the <see cref="T:Microsoft.Xrm.Sdk.Deployment.UpdateProductKeyRequest" />.</para>
       </summary>
       <remarks>
-        <para>
-            There is no return value from this operation.
-          </para>
+        <para>There is no return value from this operation.</para>
       </remarks>
       <seealso cref="T:Microsoft.Xrm.Sdk.Deployment.UpdateProductKeyRequest" />
     </member>
@@ -4804,15 +4650,13 @@ using (DeploymentServiceClient client = new DeploymentServiceClient("CustomBindi
 }
 
 </code>
-      </example>Deployment entities and deployment configuration settings<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.UpdateResponse" />Administer the deployment using Windows PowerShellhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
+      </example>Use Deployment Entities and Deployment Configuration Settings<seealso cref="T:Microsoft.Xrm.Sdk.Deployment.UpdateResponse" />Administer the deployment using Windows PowerShellhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.UpdateResponse">
       <summary>
         <para>Contains the response from the<see cref="T:Microsoft.Xrm.Sdk.Deployment.UpdateRequest" />.</para>
       </summary>
       <remarks>
-        <para>
-            There is no return value from this operation.
-          </para>
+        <para>There is no return value from this operation.</para>
       </remarks>
       <seealso cref="T:Microsoft.Xrm.Sdk.Deployment.UpdateRequest" />
     </member>
@@ -4820,21 +4664,21 @@ using (DeploymentServiceClient client = new DeploymentServiceClient("CustomBindi
       <summary>
         <para>Contains deployment specific root domain address values.</para>
       </summary>
-      <remarks />Deployment web service messagesDeployment entities and deployment configuration settingsAdminister the deployment using Windows PowerShellhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
+      <remarks />Deployment Web Service MessagesUse Deployment Entities and Deployment Configuration SettingsAdminister the deployment using Windows PowerShellhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.WorkflowSettings">
       <summary>
-        <para>Contains workflow setting values which can be changed to tune a Microsoft Dynamics 365 deployment.</para>
+        <para>Contains workflow setting values which can be changed to tune a Microsoft Dynamics CRM deployment.</para>
       </summary>
       <remarks>
         <para>You can also use Windows PowerShell to retrieve or update these settings.</para>
-      </remarks>Deployment web service messagesDeployment entities and deployment configuration settingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
+      </remarks>Deployment Web Service MessagesUse Deployment Entities and Deployment Configuration SettingsAdminister the deployment using Windows PowerShelhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
     <member name="T:Microsoft.Xrm.Sdk.Deployment.YammerSettings">
       <summary>
         <para>Contains settings for Yammer.</para>
       </summary>
       <remarks>
-        <para>The application Id and the application secret are passed to Yammer when you make an API call from Microsoft Dynamics 365 to Yammer. Yammer verifies that the API call is coming from the registered Dynamics 365 application. If the application Id and application secret passed in the API call don’t match the application Id and application secret in the Yammer database, the API call is rejected. For the API call to be acknowledged, both values must match.  </para>
+        <para>The application Id and the application secret are passed to Yammer when you make an API call from Microsoft Dynamics CRM to Yammer. Yammer verifies that the API call is coming from the registered CRM application. If the application Id and application secret passed in the API call don’t match the application Id and application secret in the Yammer database, the API call is rejected. For the API call to be acknowledged, both values must match.  </para>
         <para>You can use Windows PowerShell to retrieve or update these settings.</para>
-      </remarks>Deployment web service messagesDeployment entities and deployment configuration settingsAdminister the deployment using Windows PowerShellhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
+      </remarks>Deployment Web Service MessagesUse Deployment Entities and Deployment Configuration Settings Administer the deployment using Windows PowerShellhttp://go.microsoft.com/fwlink/p/?LinkID=313999</member>
   </members>
 </doc>

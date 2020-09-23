@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Options xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <PluginsStoreShowIncompatible xsi:nil="true" />
+  <PluginsStoreShowUpdates xsi:nil="true" />
+  <PluginsStoreShowNew xsi:nil="true" />
+  <PluginsStoreShowInstalled xsi:nil="true" />
+  <AllowLogUsage>false</AllowLogUsage>
+  <CheckUpdateOnStartup>true</CheckUpdateOnStartup>
+  <CloseEachPluginSilently>false</CloseEachPluginSilently>
+  <CloseOpenedPluginsSilently>false</CloseOpenedPluginsSilently>
+  <DisplayLargeIcons>true</DisplayLargeIcons>
+  <DisplayMostUsedFirst>false</DisplayMostUsedFirst>
+  <DisplayPluginsStoreOnStartup>true</DisplayPluginsStoreOnStartup>
+  <DisplayPluginsStoreOnlyIfUpdates>false</DisplayPluginsStoreOnlyIfUpdates>
+  <HiddenPlugins />
+  <LastAdvertisementDisplay>0001-01-01T00:00:00</LastAdvertisementDisplay>
+  <LastUpdateCheck>2020-09-23T21:19:40.7064679+01:00</LastUpdateCheck>
+  <MostUsedList />
+  <FormSize>
+    <Height>538</Height>
+    <IsMaximized>false</IsMaximized>
+    <Width>900</Width>
+  </FormSize>
+  <DoNotCheckForUpdates>false</DoNotCheckForUpdates>
+  <MergeConnectionFiles>false</MergeConnectionFiles>
+  <RememberSession>false</RememberSession>
+  <ReuseConnections>false</ReuseConnections>
+</Options>
